@@ -138,21 +138,66 @@
             text-align: center;
             border-top: 1px solid rgba(0, 210, 255, 0.1);
         }
+        /* 下拉選單基礎樣式 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a202c; /* 下拉選單背景色 */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+    border-radius: 4px;
+    top: 100%; /* 讓選單剛好在按鈕下方 */
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #cbd5e1; /* 下拉選單文字顏色 */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    white-space: nowrap; /* 防止文字換行 */
+}
+
+.dropdown-content a:hover {
+    background-color: #2d3748; /* 下拉選單項目懸停背景色 */
+    color: var(--spark-blue); /* 懸停文字顏色 */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo-container">
-            <img src="nav-logo.png" alt="LOGO" style="max-height: 35px; margin-right: 12px;">
-            <div class="logo">ENJOYAI-<span>TAIWAN</span></div>
-        </div>
-        <div class="nav-links">
-            <a href="#">首頁</a>
-            <a href="#rules">競賽規範</a>
-            <a href="#contact">聯絡我們</a>
-        </div>
-    </nav>
+   <nav class="navbar">
+    <div class="logo-container">
+        <img src="nav-logo.png" alt="LOGO" style="max-height: 35px; margin-right: 12px;">
+        <div class="logo">ENJOYAI-<span>TAIWAN</span></div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">首頁</a></li>
+        <li><a href="#rules">競賽規範</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+        
+        <li class="dropdown">
+            <a href="#" class="dropbtn">賽事回顧 ▼</a>
+            <div class="dropdown-content">
+                <a href="2025-recap.html">2025 賽季</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="spark-logo">SPARK</div>
+</nav>
 
     <div class="side-nav">
         <a href="#" class="side-btn">前往報名</a>
