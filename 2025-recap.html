@@ -101,6 +101,50 @@
             margin-top: 50px;
             border-top: 1px solid rgba(0,210,255,0.1);
         }
+        /* 相簿網格佈局 */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右平分 */
+    gap: 40px;                     /* 照片之間的間距 */
+    margin-top: 30px;
+}
+
+/* 科技感相框容器 */
+.photo-frame {
+    background: rgba(0, 210, 255, 0.05); /* 淡淡的底色 */
+    border: 2px solid var(--spark-blue);  /* 科技藍外框 */
+    padding: 10px;                       /* 相框內襯距離 */
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); /* 藍色光暈 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 16 / 9;               /* 強制所有框框比例一致 */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 照片本身 */
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 關鍵：裁切圖片以填滿相框，不會變形 */
+    border-radius: 2px;
+}
+
+/* 懸停效果 */
+.photo-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+    border-color: var(--spark-orange); /* 移上去變橘色 */
+}
+
+/* 手機版自動改為單欄排列 */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
@@ -118,14 +162,21 @@
             </p>
         </div>
 
-        <div class="content-section">
-            <h2>精彩瞬間</h2>
-            <div class="gallery">
-                <img src="2025-award-photo1.jpg" alt="2025賽季得獎照片1">
-                <img src="2025-award-photo2.jpg" alt="2025賽季得獎照片2">
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-style: italic; color: #a0aec0;">圖：2025賽季頒獎典禮與精彩比賽畫面。</p>
+       <div class="content-section">
+    <h2>精彩瞬間</h2>
+    <div class="gallery">
+        <div class="photo-frame">
+            <img src="2025-award-photo1.jpg" alt="2025賽季得獎照片1">
         </div>
+        
+        <div class="photo-frame">
+            <img src="2025-award-photo2.jpg" alt="2025賽季得獎照片2">
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 30px; font-style: italic; color: #a0aec0;">
+        圖：2025賽季頒獎典禮與精彩比賽畫面。
+    </p>
+</div>
 
         <div class="content-section">
             <h2>比賽成果與影響</h2>
