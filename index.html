@@ -25,17 +25,18 @@
         }
 
        /* --- 2. 導覽列：優化版 --- */
-        nav {
+      nav {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
             padding: 15px 5%;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* 讓 Logo 與選單分開至兩端 */
             align-items: center;
             position: fixed;
             top: 0; 
-            width: 90%; /* 這裡建議改為 width: 100%; box-sizing: border-box; 否則右邊會空一塊 */
+            width: 100%; 
+            box-sizing: border-box; /* 確保寬度計算正確 */
             z-index: 1000;
         }
 
@@ -54,31 +55,30 @@
         }
         .logo span { color: var(--spark-blue); }
 
-        /* 修正連結區域：使用 flex 讓清單橫向 */
         .nav-links {
             display: flex;
             align-items: center;
-            list-style: none; /* 移除點點 */
+            list-style: none;
             margin: 0;
             padding: 0;
         }
 
         .nav-links li {
             position: relative;
-            margin-left: 20px; /* 控制按鈕間距 */
+            margin-left: 25px; /* 控制選項間距 */
         }
 
         .nav-links a {
             color: var(--spark-white);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.3s;
-            display: block; /* 增加點擊範圍 */
+            display: block;
         }
         
         .nav-links a:hover { color: var(--spark-blue); }
 
-        /* --- 下拉選單核心樣式 --- */
+        /* --- 下拉選單樣式 --- */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -88,17 +88,16 @@
             z-index: 1;
             border-radius: 4px;
             top: 100%; 
-            left: 0;
-            padding: 10px 0; /* 增加一點內距比較好看 */
+            right: 0; /* 下拉選單靠右對齊，防止超出螢幕 */
+            padding: 10px 0;
         }
 
         .dropdown-content a {
-            margin-left: 0; /* 重置下拉選單內的邊距 */
             padding: 12px 20px;
             font-size: 0.85rem;
+            white-space: nowrap;
         }
 
-        /* 滑鼠移入 li 時，顯示選單 */
         .nav-links li:hover .dropdown-content {
             display: block;
         }
@@ -236,8 +235,6 @@
             </div>
         </li>
     </ul>
-
-    <div class="spark-logo">SPARK</div>
 </nav>
 
     <div class="side-nav">
