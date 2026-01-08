@@ -379,6 +379,87 @@
 html {
     scroll-behavior: smooth;
 }
+        /* 鯨魚機器人區塊排版 */
+.whale-grid-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    color: white;
+}
+
+.whale-card {
+    flex: 1;
+    background: rgba(43, 0, 80, 0.7); /* 深紫色透明背景 */
+    border: 2px solid #a8ff00; /* 初號機螢光綠邊框 */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 左側圖片格 (2格) */
+.image-slots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.slot {
+    flex: 1;
+    border: 1px dashed #ff9100; /* 亮橘色虛線框 */
+    padding: 10px;
+    min-height: 150px;
+}
+
+.large-slot {
+    min-height: 250px;
+}
+
+.slot img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 按鈕樣式 */
+.download-btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background: #a8ff00;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.download-btn:hover {
+    background: transparent;
+    color: #a8ff00;
+    border: 2px solid #a8ff00;
+    box-shadow: 0 0 15px #a8ff00;
+}
+
+.description-text {
+    margin: 15px 0;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* 響應式：手機版改為上下堆疊 */
+@media (max-width: 768px) {
+    .whale-grid-container {
+        flex-direction: column;
+    }
+}
     </style>
 </head>
 <body>
@@ -393,6 +474,7 @@ html {
         <li><a href="#">首頁</a></li>
         <li><a href="#rules">競賽規範</a></li>
         <li><a href="#contact">聯絡我們</a></li>
+        <li><a href="#whale-robot">鯨魚機器人</a><li>
         
         <li class="dropdown">
             <a href="#" class="dropbtn">賽事回顧 ▼</a>
@@ -485,6 +567,44 @@ html {
                     <span>Threads</span>
                 </div>
             </a>
+        </div>
+    </div>
+</section>
+    <section id="whale-robot" class="eva-border-container">
+    <h2 class="section-title">鯨魚機器人專業版</h2>
+    
+    <div class="whale-grid-container">
+        <div class="whale-card left-side">
+            <h3>移動端下載點</h3>
+            <div class="image-slots">
+                <div class="slot">
+                    <img src="your-image-url-1.jpg" alt="APP 下載圖 1">
+                    <p>專業版 APP 下載 (iOS)</p>
+                </div>
+                <div class="slot">
+                    <img src="your-image-url-2.jpg" alt="APP 下載圖 2">
+                    <p>專業版 APP 下載 (Android)</p>
+                </div>
+            </div>
+            <div class="description-text">
+                這是鯨魚機器人專業版，提供行動裝置最強大的遙控與簡易編程功能。
+            </div>
+        </div>
+
+        <div class="whale-card right-side">
+            <h3>鯨魚積木編程 (專業版)</h3>
+            <div class="image-slots">
+                <div class="slot large-slot">
+                    <img src="your-pc-image.jpg" alt="電腦版軟體截圖">
+                </div>
+            </div>
+            <div class="description-text">
+                專為競賽設計的桌面級編程環境，支援更複雜的邏輯與傳感器應用。
+            </div>
+            <div class="download-btn-group">
+                <a href="https://your-windows-link.com" target="_blank" class="download-btn win">Windows 版</a>
+                <a href="https://your-mac-link.com" target="_blank" class="download-btn mac">Mac 版</a>
+            </div>
         </div>
     </div>
 </section>
