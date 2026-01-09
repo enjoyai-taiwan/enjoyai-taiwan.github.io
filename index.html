@@ -380,88 +380,113 @@ html {
     scroll-behavior: smooth;
 }
         /* 鯨魚機器人區塊排版 */
+/* 1. 標題置中與樣式優化 */
+#whale-robot .section-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+/* 2. 容器調整：限制最大寬度並置中 */
 .whale-grid-container {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
     color: white;
+    max-width: 1100px; /* 限制寬度，避免佔據整個頁面 */
+    margin: 0 auto;    /* 水平置中容器 */
 }
 
+/* 3. 卡片調整：設定合適的寬度與比例 */
 .whale-card {
     flex: 1;
-    background: rgba(15, 15, 25, 0.8); /* 深紫色透明背景 */
-    border: 2px solid #00ffff; /* 初號機螢光綠邊框 */
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(15, 15, 25, 0.9);
+    border: 2px solid #00ffff; /* 螢光藍邊框 */
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 左側圖片格 (2格) */
+/* 4. 圖片格調整：縮小高度，符合視覺比例 */
 .image-slots {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
     margin-bottom: 15px;
 }
 
 .slot {
     flex: 1;
-    border: 1px dashed #ff9100; /* 亮橘色虛線框 */
-    padding: 10px;
-    min-height: 150px;
+    border: 1px dashed rgba(255, 145, 0, 0.5); /* 降低虛線亮度 */
+    padding: 8px;
+    min-height: auto; /* 取消原本過高的限制 */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease; /* 為了觸碰回饋 */
 }
 
-.large-slot {
-    min-height: 250px;
+/* 5. 觸碰回饋：滑鼠移到圖片格會發亮並浮起 */
+.slot:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
 
 .slot img {
     width: 100%;
+    max-width: 180px; /* 限制單張圖片最大寬度，避免過大 */
     height: auto;
     border-radius: 5px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 
-/* 按鈕樣式 */
-.download-btn-group {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+/* 6. 右側電腦版圖片特別優化 */
+.large-slot img {
+    max-width: 320px; /* 電腦版截圖不需要佔滿全螢幕 */
 }
 
+/* 7. 按鈕樣式：改為螢光藍邊框風格 */
 .download-btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
     font-weight: bold;
-    color: black;
-    background: #a8ff00;
+    color: #00ffff; /* 文字改為螢光藍 */
+    background: transparent;
+    border: 2px solid #00ffff; /* 螢光藍邊框 */
     border-radius: 5px;
     transition: 0.3s;
-    border: 2px solid transparent;
+    font-size: 0.9rem;
 }
 
 .download-btn:hover {
-    background: transparent;
-    color: #a8ff00;
-    border: 2px solid #a8ff00;
-    box-shadow: 0 0 15px #a8ff00;
+    background: #00ffff;
+    color: black; /* 懸停時反白 */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
-.description-text {
-    margin: 15px 0;
-    font-size: 0.9em;
-    line-height: 1.6;
-    color: #e0e0e0;
-}
-
-/* 響應式：手機版改為上下堆疊 */
+/* 8. 響應式微調：手機使用者觀看 */
 @media (max-width: 768px) {
     .whale-grid-container {
         flex-direction: column;
+        padding: 10px;
+    }
+    
+    .whale-card {
+        width: 100%;
+    }
+
+    .slot img {
+        max-width: 140px; /* 手機版圖片更精簡 */
     }
 }
-    </style>
 </head>
+<style>        
 <body>
 
    <nav class="navbar">
