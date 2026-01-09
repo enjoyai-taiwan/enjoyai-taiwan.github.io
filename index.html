@@ -400,7 +400,7 @@ html {
     margin: 0 auto;    /* 水平置中容器 */
 }
 
-/* 3. 卡片調整：設定合適的寬度與比例 */
+/* 3. 卡片調整：設定彈性佈局解決重疊問題 */
 .whale-card {
     flex: 1;
     background: rgba(15, 15, 25, 0.9);
@@ -409,6 +409,12 @@ html {
     border-radius: 15px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* 新增：確保內容垂直排列並撐開間距 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 520px; /* 確保左右卡片高度一致 */
 }
 
 /* 4. 圖片格調整：縮小高度，符合視覺比例 */
@@ -423,7 +429,7 @@ html {
     flex: 1;
     border: 1px dashed rgba(255, 145, 0, 0.5); /* 降低虛線亮度 */
     padding: 8px;
-    min-height: auto; /* 取消原本過高的限制 */
+    min-height: auto; 
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     overflow: hidden;
@@ -439,7 +445,7 @@ html {
 
 .slot img {
     width: 100%;
-    max-width: 180px; /* 限制單張圖片最大寬度，避免過大 */
+    max-width: 180px; 
     height: auto;
     border-radius: 5px;
     display: block;
@@ -448,29 +454,48 @@ html {
 
 /* 6. 右側電腦版圖片特別優化 */
 .large-slot img {
-    max-width: 320px; /* 電腦版截圖不需要佔滿全螢幕 */
+    max-width: 320px; 
+    transition: transform 0.3s ease;
 }
 
-/* 7. 按鈕樣式：改為螢光藍邊框風格 */
+/* 7. 文字描述區：增加間距解決重疊 */
+.whale-card p {
+    margin: 15px 0 25px 0; /* 增加底部外距，推開按鈕 */
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+}
+
+/* 8. 按鈕群組：確保置於底部 */
+.download-btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: auto; /* 關鍵：將按鈕群組推至卡片底部 */
+    padding-top: 10px;
+}
+
+/* 9. 按鈕樣式：保留您的螢光藍邊框風格 */
 .download-btn {
     padding: 12px 24px;
     text-decoration: none;
     font-weight: bold;
-    color: #00ffff; /* 文字改為螢光藍 */
+    color: #00ffff; 
     background: transparent;
-    border: 2px solid #00ffff; /* 螢光藍邊框 */
+    border: 2px solid #00ffff; 
     border-radius: 5px;
     transition: 0.3s;
     font-size: 0.9rem;
+    white-space: nowrap; /* 避免按鈕文字換行 */
 }
 
 .download-btn:hover {
     background: #00ffff;
-    color: black; /* 懸停時反白 */
+    color: black; 
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
-/* 8. 響應式微調：手機使用者觀看 */
+/* 10. 響應式微調 */
 @media (max-width: 768px) {
     .whale-grid-container {
         flex-direction: column;
@@ -479,10 +504,11 @@ html {
     
     .whale-card {
         width: 100%;
+        min-height: auto;
     }
 
     .slot img {
-        max-width: 140px; /* 手機版圖片更精簡 */
+        max-width: 140px; 
     }
 }
 </style>
