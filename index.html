@@ -511,6 +511,133 @@ html {
         max-width: 140px; 
     }
 }
+        /* 基礎佈局 */
+.rules-grid {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    max-width: 1100px;
+    margin: 0 auto;
+    perspective: 1000px; /* 啟動 3D 視角 */
+}
+
+/* --- 左側相框特效 --- */
+.photo-frame-wrapper {
+    flex: 1;
+    position: relative;
+    padding: 10px;
+    background: #0a0a15;
+    border-radius: 20px;
+    overflow: visible; /* 允許破框 */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 流水燈邊框效果 */
+.flow-light-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 3px; /* 邊框寬度 */
+    background: conic-gradient(from 0deg, transparent, #00ffff, #ff00ff, transparent);
+    animation: rotateLight 4s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+@keyframes rotateLight {
+    to { --angle: 360deg; transform: rotate(360deg); }
+}
+
+/* 圖片容器與破框特效 */
+.photo-container {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.main-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(0.8);
+    transition: 0.6s;
+}
+
+/* 滑鼠懸停：破框浮出 */
+.photo-frame-wrapper:hover .photo-container {
+    transform: rotateX(10deg) rotateY(-10px) translateZ(50px);
+}
+
+.photo-frame-wrapper:hover .main-photo {
+    filter: brightness(1.1);
+    box-shadow: 0 20px 50px rgba(0, 255, 255, 0.5);
+}
+
+/* --- 右側內容優化 --- */
+.info-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background: rgba(20, 25, 40, 0.95);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+}
+
+.info-card h3 {
+    color: #ff9100;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-left: 4px solid #ff9100;
+    padding-left: 10px;
+}
+
+.info-card ul {
+    list-style: none;
+    line-height: 2;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* 按鈕區 */
+.action-bar {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.pdf-btn {
+    padding: 12px 30px;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pdf-btn:hover {
+    background: #00ffff;
+    color: black;
+    box-shadow: 0 0 20px #00ffff;
+}
 </style>
 </head>
         
@@ -555,37 +682,44 @@ html {
         <p>探索智能程式的無限可能</p>
     </section>
 
-    <div class=<section id="rules" style="padding: 80px 10%; background: #0f172a;">
-    <h2 style="color: var(--spark-orange); font-family: 'Orbitron'; font-size: 2rem; border-left: 4px solid var(--spark-orange); padding-left: 15px; margin-bottom: 50px;">競賽規範 / RULES</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        <div style="background: #1e293b; padding: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="color: #fff; margin-bottom: 20px; font-size: 1.4rem;">⚙️ 技術規格</h3>
-            <ul style="color: #94a3b8; list-style: none; padding: 0; line-height: 2.5;">
-                <li><b style="color: #fff;">啟動尺寸：</b> 30 x 30 x 30 cm</li>
-                <li><b style="color: #fff;">動力限制：</b> 最多 4 顆馬達 (禁用舵機)</li>
-                <li><b style="color: #fff;">感測系統：</b> 類型不限，禁止粘合材料</li>
-                <li><b style="color: #fff;">零件要求：</b> whalesbot(智能程式積木鯨魚機器人)</li>
-            </ul>
-        </div>
+   <section id="competition-rules" class="rules-section">
+    <div class="container">
+        <h2 class="section-title">競賽規範 / RULES</h2>
+        
+        <div class="rules-grid">
+            <div class="photo-frame-wrapper">
+                <div class="flow-light-border"></div>
+                <div class="photo-container">
+                    <img src="your-robot-image.png" alt="GRG Robot" class="main-photo">
+                    <div class="pop-out-part"></div> </div>
+            </div>
 
-        <div style="background: #1e293b; padding: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-            <h3 style="color: #fff; margin-bottom: 20px; font-size: 1.4rem;">🏆 任務清單 (總分 530)</h3>
-            <ul style="color: #94a3b8; list-style: none; padding: 0; line-height: 2.2;">
-                <li>1. 指南針定向 / 2. 造紙術模擬</li>
-                <li>3. 火藥應用 / 4. 活字印刷</li>
-                <li>5. 地動儀檢測 / 6. 金字塔搬運</li>
-                <li>7. 長城加固 / 8. 現場加分題</li>
-            </ul>
+            <div class="info-column">
+                <div class="info-card tech-spec">
+                    <h3><i class="fas fa-cog"></i> 技術規格</h3>
+                    <ul>
+                        <li>啟動尺寸：30 x 30 x 30 cm</li>
+                        <li>動力限制：最多 4 顆馬達 (禁用能機)</li>
+                        <li>感測系統：類型不限，禁止黏合材料</li>
+                        <li>零件要求：whalesbot (智能程式積木鯨魚機器人)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card mission-list">
+                    <h3><i class="fas fa-trophy"></i> 任務清單 (總分 530)</h3>
+                    <div class="mission-grid">
+                        <span>1. 指南針定向</span><span>2. 造紙術模擬</span>
+                        <span>3. 火藥應用</span><span>4. 活字印刷</span>
+                        <span>5. 地震儀檢測</span><span>6. 金字塔搬運</span>
+                        <span>7. 長城加固</span><span>8. 現場加分題</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 50px;">
-        <a href="https://drive.google.com/file/d/19G8X7hl9xZKY4qnyceEt4LL8duWtCcZd/view?usp=sharing" 
-           style="display: inline-block; padding: 12px 35px; border: 1px solid var(--spark-blue); color: var(--spark-blue); text-decoration: none; border-radius: 4px; font-weight: bold;" 
-           target="_blank">
-           查看完整 PDF 判分標準
-        </a>
+        
+        <div class="action-bar">
+            <a href="#" class="pdf-btn">查看完整 PDF 評分標準</a>
+        </div>
     </div>
 </section>
         <h2 style="text-align:center; font-family:'Orbitron'; color:var(--spark-blue);">發展願景</h2>
