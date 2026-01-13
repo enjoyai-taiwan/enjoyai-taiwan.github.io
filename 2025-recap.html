@@ -145,6 +145,71 @@
         grid-template-columns: 1fr;
     }
 }
+        /* 榮譽榜流水燈邊框容器 */
+.honor-wall {
+    position: relative;
+    padding: 30px;
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden; /* 隱藏溢出的流光 */
+    margin: 40px 0;
+}
+
+/* 流水燈動畫效果 */
+.honor-wall::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        var(--spark-blue), 
+        transparent 30%
+    );
+    animation: rotate-light 4s linear infinite;
+    z-index: 1;
+}
+
+/* 內層遮罩，讓文字浮在上面 */
+.honor-content {
+    position: relative;
+    background: #111827;
+    padding: 25px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+@keyframes rotate-light {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 表格樣式優化 */
+.winner-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e2e8f0;
+}
+
+.winner-table th {
+    color: var(--spark-blue);
+    border-bottom: 2px solid rgba(0, 210, 255, 0.3);
+    padding: 15px 10px;
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.winner-table td {
+    padding: 15px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.highlight-rank {
+    color: var(--spark-orange);
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -176,6 +241,56 @@
     <p style="text-align: center; margin-top: 30px; font-style: italic; color: #a0aec0;">
         圖：2025賽季頒獎典禮與精彩比賽畫面。
     </p>
+</div>
+        <div class="content-section">
+    <h2>2025 夏季賽榮譽榜</h2>
+    <div class="honor-wall">
+        <div class="honor-content">
+            <table class="winner-table">
+                <thead>
+                    <tr>
+                        <th>賽事組別</th>
+                        <th>獲獎隊伍</th>
+                        <th>榮譽獎項</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>夏季大三角</td>
+                        <td>超越巔峰隊</td>
+                        <td class="highlight-rank">🏆 冠軍</td>
+                    </tr>
+                    <tr>
+                        <td>夏季大三角</td>
+                        <td>絕世好隊</td>
+                        <td class="highlight-rank">🥈 亞軍</td>
+                    </tr>
+                    <tr>
+                        <td>夏季大三角</td>
+                        <td>天際奇蹟隊</td>
+                        <td class="highlight-rank">🥉 季軍</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="padding: 10px; border: none;"></td> </tr>
+                    <tr>
+                        <td>鯨魚座普及賽</td>
+                        <td>智慧能源組</td>
+                        <td>一等獎</td>
+                    </tr>
+                    <tr>
+                        <td>鯨魚座普及賽</td>
+                        <td>極速代碼家</td>
+                        <td>一等獎</td>
+                    </tr>
+                    <tr>
+                        <td>鯨魚座普及賽</td>
+                        <td>創意小工程師</td>
+                        <td>最佳團隊獎</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
         <div class="content-section">
