@@ -734,7 +734,7 @@ html {
         justify-content: center;
         align-items: center;
         transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1050;
+        z-index: 9999 !important; /* 確保高於 side-nav 和其他邊框 */
         border-left: 2px solid var(--spark-blue);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         display: flex !important; /* 強制開啟顯示 */
@@ -769,13 +769,13 @@ html {
         
 <body>
 
-   <nav class="navbar">
+  <nav class="navbar">
     <div class="logo-container">
         <img src="nav-logo.png" alt="LOGO" style="max-height: 35px; margin-right: 12px;">
         <div class="logo">ENJOYAI-<span>TAIWAN</span></div>
     </div>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
         <li><a href="#">首頁</a></li>
         <li><a href="#competition-rules">競賽規範</a></li>
         <li><a href="#contact">聯絡我們</a></li>
@@ -788,7 +788,8 @@ html {
             </div>
         </li>
     </ul>
-<div id="menu-toggle" class="menu-toggle">
+
+    <div id="menu-toggle" class="menu-toggle">
         <span></span>
         <span></span>
         <span></span>
@@ -803,15 +804,14 @@ html {
         <a href="https://line.me/ti/g2/FNWqLk607iujf_GImFkdjOA-aPmEJ7xCTlho1A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="side-btn">加入群組</a>
     </div>
 
-  <section class="hero" id="home">
+ <section class="hero" id="home">
     <div class="hero-content">
         <div class="logo-interaction-wrapper">
             <img src="your-logo-file.png" alt="Enjoy AI Logo" class="hero-main-logo">
         </div>
-
         <h1 class="hero-title">ENJOY AI 2026</h1>
         <p>探索智能程式的無限可能</p>
-    </section>
+    </div> </section>
 
    <section id="competition-rules" class="rules-section">
     <div class="container">
@@ -927,22 +927,27 @@ html {
 </section>
     <title>Enjoy AI 2026 競賽專區 | 臺灣智能程式科技教育推廣協會 SPARK</title>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
 
-    // 點擊漢堡切換
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // 點擊選項後自動收起選單
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+    if (menuToggle && navLinks) {
+        // 點擊漢堡切換
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-    });
+
+        // 點擊選項後自動收起選單
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
 </script>
     <footer>
        <div class="spark-competition-footer" style="background-color: transparent; padding: 40px 20px; text-align: center; font-family: 'Microsoft JhengHei', sans-serif;">
