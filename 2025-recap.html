@@ -158,10 +158,10 @@ body {
     align-items: center;
     cursor: pointer;
     z-index: 1;
-    overflow: visible; /* 讓閃電可以炸出去 */
+    overflow: visible; 
 }
 
-/* 基礎閃電設定 (平常狀態) */
+/* 基礎閃電設定 (平常跳動) */
 .thunder-card::before, .thunder-card::after, 
 .thunder-card .sparks::before, .thunder-card .sparks::after {
     content: ''; 
@@ -179,44 +179,60 @@ body {
 .thunder-card .sparks::before { left: -5px; width: 4px; height: 0%; top: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.2s; }
 .thunder-card .sparks::after { right: -5px; width: 4px; height: 0%; bottom: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.7s; }
 
-/* ⚡️ 電閃雷鳴懸停爆發修正 ⚡️ */
+/* ⚡️ 電閃雷鳴懸停爆發 (修復大白框問題) ⚡️ */
 .thunder-card:hover { 
     z-index: 10; 
     box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); 
 }
 
-/* 懸停時：強制顯示閃電芯並擴大範圍 */
-.thunder-card:hover::before, .thunder-card:hover::after,
-.thunder-card:hover .sparks::before, .thunder-card:hover .sparks::after {
-    animation: none; /* 停止平常的小閃爍 */
-    width: 104% !important; 
-    height: 104% !important;
-    left: -2% !important; 
-    top: -2% !important;
-    background: #fff !important; /* 閃電芯變回白色 */
+/* 懸停時：橫向閃電 (上下) */
+.thunder-card:hover::before, .thunder-card:hover::after {
+    animation: lightning-flicker 0.1s infinite !important;
+    width: 100% !important; 
+    height: 6px !important; /* 限制厚度，防止變成大白塊 */
+    left: 0 !important;
+    background: #fff !important;
     opacity: 1;
-    z-index: 3; /* 確保閃電在圖片前面 */
+    z-index: 3;
+    filter: url(#lightning-warp) drop-shadow(0 0 15px #fff) drop-shadow(0 0 30px #00d2ff) brightness(1.5);
+}
+
+/* 懸停時：縱向閃電 (左右) */
+.thunder-card:hover .sparks::before, .thunder-card:hover .sparks::after {
+    animation: lightning-flicker 0.1s infinite !important;
+    width: 6px !important; /* 限制厚度 */
+    height: 100% !important;
+    top: 0 !important;
+    background: #fff !important;
+    opacity: 1;
+    z-index: 3;
     filter: url(#lightning-warp) drop-shadow(0 0 15px #fff) drop-shadow(0 0 30px #00d2ff) brightness(1.5);
 }
 
 .thunder-card img { 
-    width: 96%; 
-    height: 96%; 
+    width: 92%; 
+    height: 92%; 
     object-fit: contain; 
     position: relative; 
-    z-index: 2; /* 圖片在中間層 */
+    z-index: 2; 
+    background: #000;
     transition: transform 0.2s; 
 }
 
-/* 懸停時圖片震動 */
 .thunder-card:hover img { 
     animation: thunder-shake 0.4s infinite; 
     transform: scale(1.1); 
     filter: brightness(1.2) drop-shadow(0 0 15px #00d2ff);
 }
 
+/* 動畫定義 */
 @keyframes lightning-strike-h { 0%, 100% { width: 0%; opacity: 0; } 5%, 40% { width: 50%; opacity: 1; } }
 @keyframes lightning-strike-v { 0%, 100% { height: 0%; opacity: 0; } 10%, 50% { height: 60%; opacity: 1; } }
+@keyframes lightning-flicker { /* 極速電流閃爍 */
+    0% { opacity: 0.8; transform: skewX(1deg); }
+    50% { opacity: 1; transform: skewX(-1deg); }
+    100% { opacity: 0.9; transform: skewX(0deg); }
+}
 @keyframes thunder-shake { 
     0% { transform: scale(1.1) translate(0,0); } 
     25% { transform: scale(1.1) translate(-4px, 4px); } 
@@ -224,13 +240,14 @@ body {
     75% { transform: scale(1.1) translate(-2px, -2px); } 
     100% { transform: scale(1.1) translate(0,0); } 
 }
+
 .back-button {
     display: inline-block; margin-top: 50px; padding: 12px 30px;
     background-color: var(--spark-blue); color: #0a0e17;
     text-decoration: none; border-radius: 5px; font-weight: bold;
 }
 .footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; margin-top: 50px; border-top: 1px solid rgba(0,210,255,0.1); }
-    </style>
+</style>
 </head>
 <body>
     <div class="header">
