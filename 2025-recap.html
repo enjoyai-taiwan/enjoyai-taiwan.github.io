@@ -137,7 +137,7 @@ body {
 .winner-table th { color: var(--spark-blue); font-family: 'Orbitron', sans-serif; letter-spacing: 1px; }
 .highlight-rank { color: var(--spark-orange); font-weight: bold; text-shadow: 0 0 8px rgba(255, 110, 0, 0.3); }
 
-/* 榮耀之巔卡片佈局 */
+/* --- 榮耀之巔卡片佈局 --- */
 .glory-grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -159,6 +159,8 @@ body {
     z-index: 1;
     overflow: visible;
 }
+
+/* 基礎閃電設定 (平常跳動) */
 .thunder-card::before, .thunder-card::after, .thunder-card .sparks::before, .thunder-card .sparks::after {
     content: ''; position: absolute; background: #fff; z-index: 1;
     filter: url(#lightning-warp) drop-shadow(0 0 8px #00d2ff);
@@ -169,14 +171,42 @@ body {
 .thunder-card .sparks { position: absolute; inset: 0; z-index: 1; }
 .thunder-card .sparks::before { left: -5px; width: 4px; height: 0%; top: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.2s; }
 .thunder-card .sparks::after { right: -5px; width: 4px; height: 0%; bottom: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.7s; }
-.thunder-card:hover { z-index: 10; box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); }
-.thunder-card:hover img { animation: thunder-shake 0.4s infinite; transform: scale(1.1); }
-.thunder-card img { width: 96%; height: 96%; object-fit: contain; position: relative; z-index: 2; }
+
+/* ⚡️ 關鍵修正：滑鼠懸停時的電閃雷鳴 ⚡️ */
+.thunder-card:hover { 
+    z-index: 10; 
+    box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); 
+}
+
+/* 懸停時讓所有邊框變成持續跳動的強光閃電 */
+.thunder-card:hover::before, .thunder-card:hover::after,
+.thunder-card:hover .sparks::before, .thunder-card:hover .sparks::after {
+    width: 104%; height: 104%;
+    left: -2%; top: -2%;
+    background: #fff;
+    opacity: 1;
+    z-index: 3;
+    filter: url(#lightning-warp) drop-shadow(0 0 15px #fff) drop-shadow(0 0 30px #00d2ff) brightness(1.5);
+}
+
+.thunder-card img { width: 96%; height: 96%; object-fit: contain; position: relative; z-index: 2; transition: transform 0.2s; }
+
+/* 懸停時圖片震動 + 光暈強化 */
+.thunder-card:hover img { 
+    animation: thunder-shake 0.4s infinite; 
+    transform: scale(1.1); 
+    filter: brightness(1.2) drop-shadow(0 0 15px #00d2ff);
+}
 
 @keyframes lightning-strike-h { 0%, 100% { width: 0%; opacity: 0; } 5%, 40% { width: 50%; opacity: 1; } }
 @keyframes lightning-strike-v { 0%, 100% { height: 0%; opacity: 0; } 10%, 50% { height: 60%; opacity: 1; } }
-@keyframes thunder-shake { 0% { transform: scale(1.1) translate(0,0); } 20% { transform: scale(1.1) translate(-3px,3px); } 40% { transform: scale(1.1) translate(3px,-3px); } }
-
+@keyframes thunder-shake { 
+    0% { transform: scale(1.1) translate(0,0); } 
+    25% { transform: scale(1.1) translate(-4px, 4px); } 
+    50% { transform: scale(1.1) translate(4px, -4px); } 
+    75% { transform: scale(1.1) translate(-2px, -2px); } 
+    100% { transform: scale(1.1) translate(0,0); } 
+}
 .back-button {
     display: inline-block; margin-top: 50px; padding: 12px 30px;
     background-color: var(--spark-blue); color: #0a0e17;
