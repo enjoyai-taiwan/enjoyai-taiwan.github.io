@@ -6,214 +6,122 @@
     <title>ENJOY AI 2025 賽事回顧 - ENJOYAI-TAIWAN</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --spark-blue: #00d2ff;
-            --spark-orange: #ff6e00;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a0e17; /* 深藍黑背景 */
-            color: #e2e8f0; /* 淺灰白色文字 */
-            scroll-behavior: smooth;
-        }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-        .header {
-            background-color: #1a202c; /* 深灰色標題背景 */
-            padding: 30px 0;
-            text-align: center;
-            border-bottom: 2px solid var(--spark-blue);
-            margin-bottom: 50px;
-        }
-        .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--spark-blue);
-            font-size: 2.8rem;
-            margin: 0;
-        }
-        .header p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            margin-top: 10px;
-        }
-        .content-section {
-            background-color: #111827; /* 內容區塊背景 */
-            padding: 40px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .content-section h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--spark-orange);
-            font-size: 2rem;
-            margin-bottom: 25px;
-            border-bottom: 2px solid rgba(255,110,0,0.3);
-            padding-bottom: 10px;
-        }
-        .content-section p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #cbd5e1;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 兩張照片並排 */
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid rgba(0,210,255,0.3);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.02);
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 50px;
-            padding: 12px 30px;
-            background-color: var(--spark-blue);
-            color: #0a0e17;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .back-button:hover {
-            background-color: #00aaff;
-        }
-        .footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-            font-size: 0.9rem;
-            margin-top: 50px;
-            border-top: 1px solid rgba(0,210,255,0.1);
-        }
-        /* 相簿網格佈局 */
+:root {
+    --spark-blue: #00d2ff;
+    --spark-orange: #ff6e00;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0; padding: 0;
+    background-color: #0a0e17;
+    color: #e2e8f0;
+    scroll-behavior: smooth;
+}
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.header {
+    background-color: #1a202c;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 2px solid var(--spark-blue);
+    margin-bottom: 50px;
+}
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--spark-blue);
+    font-size: 2.8rem;
+    margin: 0;
+}
+.header p {
+    font-size: 1.2rem; color: #cbd5e1; margin-top: 10px;
+}
+.content-section {
+    background-color: #111827;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.content-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--spark-orange);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(255,110,0,0.3);
+    padding-bottom: 10px;
+}
+.content-section p { line-height: 1.8; margin-bottom: 20px; color: #cbd5e1; }
+
+/* 相簿網格佈局 */
 .gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 左右平分 */
-    gap: 40px;                     /* 照片之間的間距 */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     margin-top: 30px;
 }
-
-/* 科技感相框容器 */
 .photo-frame {
-    background: rgba(0, 210, 255, 0.05); /* 淡淡的底色 */
-    border: 2px solid var(--spark-blue);  /* 科技藍外框 */
-    padding: 10px;                       /* 相框內襯距離 */
+    background: rgba(0, 210, 255, 0.05);
+    border: 2px solid var(--spark-blue);
+    padding: 10px;
     border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); /* 藍色光暈 */
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 16 / 9;               /* 強制所有框框比例一致 */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-/* 照片本身 */
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 關鍵：裁切圖片以填滿相框，不會變形 */
-    border-radius: 2px;
-}
-
-/* 懸停效果 */
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
 .photo-frame:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
-    border-color: var(--spark-orange); /* 移上去變橘色 */
+    border-color: var(--spark-orange);
 }
 
-/* --- 手機版專屬優化 (不影響電腦版) --- */
+/* --- 手機版專屬優化 (768px 以下) --- */
 @media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .header h1 {
-        font-size: 1.8rem !important;
-        padding: 0 10px;
-    }
-
-    /* 關鍵：在手機版開啟捲軸容器 */
+    .gallery { grid-template-columns: 1fr; gap: 20px; }
+    .header h1 { font-size: 1.8rem !important; padding: 0 10px; }
     .table-responsive-wrapper {
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin: 10px 0;
     }
-
-    /* 強制表格不縮水，保證滑動品質 */
-    .winner-table {
-        min-width: 500px;
-        font-size: 14px;
-    }
-
-    .container {
-        width: 92%;
-        padding: 20px 0;
-    }
-
-    .content-section {
-        padding: 20px;
-    }
+    .winner-table { min-width: 500px; font-size: 14px; }
+    .container { width: 92%; padding: 20px 0; }
+    .content-section { padding: 20px; }
+    .glory-grid-container { grid-template-columns: 1fr !important; gap: 30px; }
 }
 
-/* --- 電腦版補償：確保完全不變 --- */
+/* --- 電腦版補償 --- */
 @media (min-width: 769px) {
-    .table-responsive-wrapper {
-        overflow: visible;
-    }
+    .table-responsive-wrapper { overflow: visible; }
 }
 
-    /* 5. 修正閃電卡片比例 */
-    .glory-grid-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-/* 流水燈邊框效果核心 */
+/* 流水燈邊框核心 (修正光束炸開問題) */
 .award-stream-box {
     position: relative;
-    padding: 3px; /* 流水燈的寬度 */
+    padding: 3px;
     background: #0a0e17;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden; /* 確保光束不溢出 */
     margin: 40px 0;
+    z-index: 1;
 }
-
 .award-stream-box::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        transparent, 
-        #00d2ff, /* 科技藍 */
-        #ff6e00, /* SPARK 橘 */
-        transparent 30%
-    );
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(transparent, #00d2ff, #ff6e00, transparent 30%);
     animation: rotate-border 4s linear infinite;
 }
-
 .award-inner-content {
     position: relative;
     background: #111827;
@@ -221,41 +129,15 @@
     border-radius: 12px;
     z-index: 2;
 }
+@keyframes rotate-border { 100% { transform: rotate(360deg); } }
 
-@keyframes rotate-border {
-    100% { transform: rotate(360deg); }
-}
+/* 表格樣式 */
+.winner-table { width: 100%; border-collapse: collapse; color: #e2e8f0; }
+.winner-table th, .winner-table td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.winner-table th { color: var(--spark-blue); font-family: 'Orbitron', sans-serif; letter-spacing: 1px; }
+.highlight-rank { color: var(--spark-orange); font-weight: bold; text-shadow: 0 0 8px rgba(255, 110, 0, 0.3); }
 
-/* 表格專屬優化 */
-.winner-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #e2e8f0;
-}
-
-.winner-table th, .winner-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.winner-table th {
-    color: var(--spark-blue);
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
-}
-
-.highlight-rank {
-    color: var(--spark-orange);
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(255, 110, 0, 0.3);
-}
-
-/* 處理換行選手名單的行高 */
-.winner-table td {
-    line-height: 1.5;
-}
-/* --- 1. 雙相框佈局與基礎設定 (保留原有的完美佈局) --- */
+/* 榮耀之巔卡片佈局 */
 .glory-grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -265,15 +147,6 @@
     perspective: 1000px;
     padding: 20px;
 }
-.table-responsive-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-@media (max-width: 768px) {
-    .glory-grid-container { grid-template-columns: 1fr; }
-}
-
 .thunder-card {
     position: relative;
     width: 100%;
@@ -284,107 +157,32 @@
     align-items: center;
     cursor: pointer;
     z-index: 1;
-    overflow: visible; /* 讓鋸齒閃電可以炸出框外 */
+    overflow: visible;
 }
-
-/* --- 2. 核心：不規則鋸齒閃電邊框 (覆蓋舊的直線條) --- */
-.thunder-card::before, .thunder-card::after, 
-.thunder-card .sparks::before, .thunder-card .sparks::after {
-    content: '';
-    position: absolute;
-    background: #fff; /* 閃電芯為白色 */
-    z-index: 1;
-    /* ⚡️ 關鍵：連結到 HTML 底部的濾鏡 ⚡️ */
-    filter: url(#lightning-warp) drop-shadow(0 0 8px #00d2ff) drop-shadow(0 0 15px #00d2ff);
-    pointer-events: none;
-    opacity: 0.9;
+.thunder-card::before, .thunder-card::after, .thunder-card .sparks::before, .thunder-card .sparks::after {
+    content: ''; position: absolute; background: #fff; z-index: 1;
+    filter: url(#lightning-warp) drop-shadow(0 0 8px #00d2ff);
+    pointer-events: none; opacity: 0.9;
 }
-
-/* 橫向閃電跳動 */
-.thunder-card::before {
-    top: -5px; height: 4px; width: 0%; left: 0;
-    animation: lightning-strike-h 1.2s infinite ease-in-out;
-}
-.thunder-card::after {
-    bottom: -5px; height: 4px; width: 0%; right: 0;
-    animation: lightning-strike-h 1.2s infinite ease-in-out 0.6s;
-}
-
-/* 縱向閃電跳動 */
+.thunder-card::before { top: -5px; height: 4px; width: 0%; left: 0; animation: lightning-strike-h 1.2s infinite ease-in-out; }
+.thunder-card::after { bottom: -5px; height: 4px; width: 0%; right: 0; animation: lightning-strike-h 1.2s infinite ease-in-out 0.6s; }
 .thunder-card .sparks { position: absolute; inset: 0; z-index: 1; }
-.thunder-card .sparks::before {
-    left: -5px; width: 4px; height: 0%; top: 0;
-    animation: lightning-strike-v 1s infinite ease-in-out 0.2s;
-}
-.thunder-card .sparks::after {
-    right: -5px; width: 4px; height: 0%; bottom: 0;
-    animation: lightning-strike-v 1s infinite ease-in-out 0.7s;
-}
+.thunder-card .sparks::before { left: -5px; width: 4px; height: 0%; top: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.2s; }
+.thunder-card .sparks::after { right: -5px; width: 4px; height: 0%; bottom: 0; animation: lightning-strike-v 1s infinite ease-in-out 0.7s; }
+.thunder-card:hover { z-index: 10; box-shadow: 0 0 40px rgba(0, 210, 255, 0.4); }
+.thunder-card:hover img { animation: thunder-shake 0.4s infinite; transform: scale(1.1); }
+.thunder-card img { width: 96%; height: 96%; object-fit: contain; position: relative; z-index: 2; }
 
-/* --- 3. 懸停效果：能量大爆發 (結合震動與鋸齒) --- */
-.thunder-card:hover {
-    z-index: 10;
-    box-shadow: 0 0 40px rgba(0, 210, 255, 0.4);
-}
+@keyframes lightning-strike-h { 0%, 100% { width: 0%; opacity: 0; } 5%, 40% { width: 50%; opacity: 1; } }
+@keyframes lightning-strike-v { 0%, 100% { height: 0%; opacity: 0; } 10%, 50% { height: 60%; opacity: 1; } }
+@keyframes thunder-shake { 0% { transform: scale(1.1) translate(0,0); } 20% { transform: scale(1.1) translate(-3px,3px); } 40% { transform: scale(1.1) translate(3px,-3px); } }
 
-.thunder-card:hover::before, .thunder-card:hover::after,
-.thunder-card:hover .sparks::before, .thunder-card:hover .sparks::after {
-    animation: none;
-    width: 106%; height: 106%;
-    left: -3%; top: -3%;
-    background: transparent;
-    border: 4px solid #fff;
-    filter: url(#lightning-warp) drop-shadow(0 0 15px #fff) drop-shadow(0 0 30px #00d2ff) brightness(1.5);
-    opacity: 1;
+.back-button {
+    display: inline-block; margin-top: 50px; padding: 12px 30px;
+    background-color: var(--spark-blue); color: #0a0e17;
+    text-decoration: none; border-radius: 5px; font-weight: bold;
 }
-
-.thunder-card img {
-    width: 96%; height: 96%;
-    object-fit: contain;
-    transition: transform 0.1s;
-    position: relative;
-    z-index: 2;
-    filter: brightness(0.9) contrast(1.1);
-}
-
-/* 炸裂震動效果 (保留原本的震撼感) */
-.thunder-card:hover img {
-    animation: thunder-shake 0.4s cubic-bezier(.36,.07,.19,.97) both infinite;
-    transform: scale(1.1);
-}
-
-/* --- 4. 動畫與佔位符設定 --- */
-.placeholder-content {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    height: 100%; color: rgba(255, 255, 255, 0.3); font-family: 'Orbitron', sans-serif;
-}
-
-@keyframes lightning-strike-h {
-    0% { width: 0%; left: 0; opacity: 0; }
-    5% { width: 40%; left: 10%; opacity: 1; }
-    25% { width: 10%; left: 80%; }
-    40% { width: 50%; left: 30%; opacity: 1; }
-    60% { width: 0%; left: 100%; opacity: 0; }
-    100% { width: 0%; left: 100%; opacity: 0; }
-}
-
-@keyframes lightning-strike-v {
-    0% { height: 0%; top: 0; opacity: 0; }
-    10% { height: 40%; top: 10%; opacity: 1; }
-    30% { height: 10%; top: 80%; }
-    50% { height: 60%; top: 20%; opacity: 1; }
-    70% { height: 0%; top: 100%; opacity: 0; }
-    100% { height: 0%; top: 100%; opacity: 0; }
-}
-
-@keyframes thunder-shake {
-    0% { transform: scale(1.1) translate(0, 0); }
-    10% { transform: scale(1.1) translate(-3px, -3px); filter: brightness(2) hue-rotate(180deg); }
-    20% { transform: scale(1.1) translate(3px, 3px); }
-    40% { transform: scale(1.1) translate(3px, -3px); }
-    60% { transform: scale(1.1) translate(-2px, 0); }
-    100% { transform: scale(1.1) translate(0, 0); }
-}
+.footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; margin-top: 50px; border-top: 1px solid rgba(0,210,255,0.1); }
     </style>
 </head>
 <body>
