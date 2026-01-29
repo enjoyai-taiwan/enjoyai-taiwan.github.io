@@ -139,10 +139,53 @@
     border-color: var(--spark-orange); /* 移上去變橘色 */
 }
 
-/* 手機版自動改為單欄排列 */
+/* --- 手機版專屬優化 (不影響電腦版) --- */
 @media (max-width: 768px) {
     .gallery {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem !important;
+        padding: 0 10px;
+    }
+
+    /* 關鍵：在手機版開啟捲軸容器 */
+    .table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 10px 0;
+    }
+
+    /* 強制表格不縮水，保證滑動品質 */
+    .winner-table {
+        min-width: 500px;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+        padding: 20px 0;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+}
+
+/* --- 電腦版補償：確保完全不變 --- */
+@media (min-width: 769px) {
+    .table-responsive-wrapper {
+        overflow: visible;
+    }
+}
+
+    /* 5. 修正閃電卡片比例 */
+    .glory-grid-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 /* 流水燈邊框效果核心 */
@@ -222,7 +265,11 @@
     perspective: 1000px;
     padding: 20px;
 }
-
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 @media (max-width: 768px) {
     .glory-grid-container { grid-template-columns: 1fr; }
 }
@@ -374,45 +421,47 @@
     </div>
 </div>
         
-      <div class="content-section">
+     <div class="content-section">
     <h2>2025 夏季賽榮譽榜</h2>
     <div class="award-stream-box">
         <div class="award-inner-content">
-            <table class="winner-table">
-                <thead>
-                    <tr>
-                        <th>賽事組別</th>
-                        <th>獲獎隊伍 / 選手</th>
-                        <th>榮譽獎項</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>《Geometric Forest》</td>
-                        <td>「Team Hanergy」<br>陳○翰、蔡○漢</td>
-                        <td class="highlight-rank">🏆 冠軍</td>
-                    </tr>
-                    <tr>
-                        <td>《Cyber City - Elementary》</td>
-                        <td>「Goldfish team」<br>林○謙</td>
-                        <td class="highlight-rank">🥈 第二名</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">《Cyber City - Middle School》</td>
-                        <td>「Taiwan Lucky Bicycle」<br>吳○皓、陳○弘</td>
-                        <td class="highlight-rank">🏆 冠軍</td>
-                    </tr>
-                    <tr>
-                        <td>「TAIWAN MVP」<br>蕭○紳</td>
-                        <td class="highlight-rank">🥉 第三名</td>
-                    </tr>
-                    <tr>
-                        <td>《Cyber City - High School》</td>
-                        <td>「Reaching the pinnacle」<br>陳○</td>
-                        <td class="highlight-rank">🎖️ Dedication Award</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive-wrapper">
+                <table class="winner-table">
+                    <thead>
+                        <tr>
+                            <th>賽事組別</th>
+                            <th>獲獎隊伍 / 選手</th>
+                            <th>榮譽獎項</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>《Geometric Forest》</td>
+                            <td>「Team Hanergy」<br>陳○翰、蔡○漢</td>
+                            <td class="highlight-rank">🏆 冠軍</td>
+                        </tr>
+                        <tr>
+                            <td>《Cyber City - Elementary》</td>
+                            <td>「Goldfish team」<br>林○謙</td>
+                            <td class="highlight-rank">🥈 第二名</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">《Cyber City - Middle School》</td>
+                            <td>「Taiwan Lucky Bicycle」<br>吳○皓、陳○弘</td>
+                            <td class="highlight-rank">🏆 冠軍</td>
+                        </tr>
+                        <tr>
+                            <td>「TAIWAN MVP」<br>蕭○紳</td>
+                            <td class="highlight-rank">🥉 第三名</td>
+                        </tr>
+                        <tr>
+                            <td>《Cyber City - High School》</td>
+                            <td>「Reaching the pinnacle」<br>陳○</td>
+                            <td class="highlight-rank">🎖️ Dedication Award</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
