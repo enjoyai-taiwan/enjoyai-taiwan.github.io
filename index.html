@@ -107,72 +107,6 @@
         .nav-links li:hover .dropdown-content {
             display: block;
         }
-        /* --- 2.5 亞洲公開賽資訊條 (新增) --- */
-.event-announcement-bar {
-    background: linear-gradient(90deg, #05070a 0%, #101622 50%, #05070a 100%);
-    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    padding: 10px 0;
-    margin-top: 71px; /* 精確對應你導覽列的高度，防止重疊 */
-    position: relative;
-    overflow: hidden;
-    z-index: 900;
-}
-
-.event-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    font-family: 'Noto Sans TC', sans-serif;
-}
-
-.event-tag {
-    background: linear-gradient(45deg, #8A2BE2, #00d2ff); /* 初號機紫到科技藍 */
-    color: white;
-    font-size: 0.7rem;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
-}
-
-.event-text {
-    color: var(--spark-white);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
-
-.event-text strong {
-    color: var(--spark-blue);
-    font-weight: 700;
-}
-
-.event-text .location {
-    color: var(--spark-orange);
-    margin: 0 5px;
-}
-
-/* 淡淡的掃過能量流特效 */
-.event-announcement-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.05), transparent);
-    animation: infoSweep 6s infinite linear;
-}
-
-@keyframes infoSweep {
-    0% { left: -100%; }
-    100% { left: 200%; }
-}
 
         /* --- 3. 首頁 Banner 恢復排版 --- */
         .hero {
@@ -294,7 +228,89 @@
     text-align: center;
     padding: 60px 20px;     /* 增加上下內邊距 */
 }
+/* --- 今年主打賽事：強化版樣式 --- */
+.main-event-feature {
+    width: 100%;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 210, 255, 0.05), transparent);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-top: 1px solid rgba(0, 210, 255, 0.1);
+}
 
+.feature-content {
+    text-align: center;
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+}
+
+/* 輔助小標題 */
+.glitch-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--spark-blue);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.event-main-info h2 {
+    font-size: 3.5rem; /* 大幅度放大 */
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 900;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, var(--spark-blue), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+}
+
+.location-tag {
+    background: var(--spark-orange);
+    color: #000;
+    padding: 4px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.date-text {
+    font-size: 1.8rem;
+    color: var(--spark-white);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* 裝飾線條：模擬能量流動 */
+.energy-line {
+    width: 200px;
+    height: 2px;
+    background: var(--spark-blue);
+    margin: 30px auto 0;
+    position: relative;
+    box-shadow: 0 0 15px var(--spark-blue);
+}
+
+.energy-line::before, .energy-line::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--spark-blue);
+    border-radius: 50%;
+    top: -4px;
+    box-shadow: 0 0 10px var(--spark-blue);
+}
+
+.energy-line::before { left: 0; }
+.energy-line::after { right: 0; }
 /* --- 大 LOGO 容器：控制與下方文字的距離 --- */
 .logo-interaction-wrapper {
     perspective: 1000px;
@@ -884,16 +900,7 @@ html {
         <a href="#" target="_blank" class="side-btn">匯款完成表單</a>
         <a href="https://line.me/ti/g2/FNWqLk607iujf_GImFkdjOA-aPmEJ7xCTlho1A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="side-btn">加入群組</a>
     </div>
-<div class="event-announcement-bar">
-    <div class="event-container">
-        <span class="event-tag">2026 TOP EVENT</span>
-        <span class="event-text">
-            <i class="fas fa-globe-asia"></i> 
-            <strong>ENJOY AI 亞洲公開賽</strong> ｜ 越南・河內 ｜ 8月23、24日
-        </span>
-        <a href="#" class="event-link">了解詳情 <i class="fas fa-arrow-right"></i></a>
-    </div>
-</div>
+
  <section class="hero" id="home">
     <div class="hero-content">
         <div class="logo-interaction-wrapper">
@@ -902,7 +909,17 @@ html {
         <h1 class="hero-title">ENJOY AI 2026</h1>
         <p>探索智能程式的無限可能</p>
     </div> </section>
-
+<div class="main-event-feature">
+    <div class="feature-content">
+        <div class="glitch-title" data-text="2026 年度主打賽事">2026 年度主打賽事</div>
+        <div class="event-main-info">
+            <span class="location-tag">VIETNAM / HANOI</span>
+            <h2>ENJOY AI 亞洲公開賽</h2>
+            <p class="date-text">8 月 23 日 － 8 月 24 日</p>
+        </div>
+        <div class="energy-line"></div>
+    </div>
+</div>
    <section id="competition-rules" class="rules-section">
     <div class="container">
         <h2 class="section-title">競賽規範 / RULES</h2>
