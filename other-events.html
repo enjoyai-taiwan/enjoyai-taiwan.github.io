@@ -267,12 +267,46 @@
             transform: scale(1.05);
         }
 
-        /* 手機版適應 */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .back-home-btn { left: 20px; bottom: 80px; padding: 10px 15px; }
-            .archive-card { height: 300px; }
-        }
+       /* --- 手機版專屬優化：取消霧面，直接清晰 --- */
+@media (max-width: 768px) {
+    /* 1. 調整卡片高度，讓手機瀏覽更舒適 */
+    .archive-card {
+        height: 250px; 
+    }
+
+    /* 2. 移除毛玻璃與深色遮罩 */
+    .card-glass {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%); /* 只保留底部漸層，確保文字清晰 */
+        backdrop-filter: blur(0px) !important; /* 強制取消霧化 */
+        -webkit-backdrop-filter: blur(0px) !important;
+        padding: 15px;
+    }
+
+    /* 3. 調整文字大小以適應小螢幕 */
+    .archive-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .region-tag {
+        font-size: 0.7rem;
+    }
+
+    .status {
+        font-size: 0.75rem;
+        padding-top: 5px;
+    }
+
+    /* 4. 移除滑鼠懸停的位移效果（手機無滑鼠，避免觸控誤發） */
+    .archive-card:hover {
+        transform: none;
+    }
+
+    /* 5. 讓原始航線圖在手機上滿版 */
+    .map-display-section {
+        margin-bottom: 40px;
+    }
+}
     </style>
 </head>
 <body>
