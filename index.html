@@ -268,16 +268,20 @@
     text-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
 }
 
+/* --- 放大版地點標籤 --- */
 .location-tag {
     background: var(--spark-orange);
     color: #000;
-    padding: 4px 15px;
+    padding: 8px 25px;       /* 增加內邊距，讓標籤變胖 */
     font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 4px;
+    font-weight: 900;        /* 字體加到最粗 */
+    font-size: 1.4rem;       /* 從 1.0rem 放大到 1.4rem */
+    border-radius: 6px;      /* 稍微加圓一點點 */
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;     /* 與下方標題增加間距 */
+    letter-spacing: 4px;     /* 增加字母間距，更有科技感 */
+    box-shadow: 0 0 20px rgba(255, 157, 0, 0.4); /* 增加橘色光暈效果 */
+    text-transform: uppercase;
 }
 
 .date-text {
