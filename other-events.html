@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他賽事資訊 | Enjoy AI 2026</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- 基礎設定與變數 --- */
+        :root {
+            --spark-blue: #00d2ff;     
+            --spark-orange: #ff9d00;   
+            --spark-dark: #0a0e17;     
+            --spark-white: #f0f4f8;    
+            --glass-bg: rgba(10, 14, 23, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--spark-dark);
+            color: var(--spark-white);
+            font-family: 'Noto Sans TC', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- 導覽列 (與首頁一致) --- */
+        nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--spark-white);
+        }
+
+        .logo span { color: var(--spark-blue); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--spark-white);
+            font-size: 0.9rem;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--spark-blue); }
+
+        /* --- 其他賽事檔案館核心內容 --- */
+        .events-archive-container {
+            background: radial-gradient(circle at 50% 50%, #101622 0%, #05050a 100%);
+            min-height: 100vh;
+            padding: 120px 5% 150px; /* 底部留空間給跑馬燈 */
+        }
+
+        /* 原始圖片展示區：實驗室觀測窗風格 */
+        .map-display-section {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+
+        .section-tag {
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            color: var(--spark-blue);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .glass-frame {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .original-map {
+            width: 100%;
+            border-radius: 10px;
+            filter: brightness(0.8) contrast(1.1);
+            transition: 0.5s;
+        }
+
+        .original-map:hover {
+            filter: brightness(1);
+        }
+
+        /* L 型對焦框 */
+        .l-frame {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--spark-blue);
+            z-index: 5;
+        }
+        .top-left { top: -5px; left: -5px; border-right: 0; border-bottom: 0; }
+        .bottom-right { bottom: -5px; right: -5px; border-left: 0; border-top: 0; }
+
+        /* 五大檔案卡片網格 */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .archive-card {
+            height: 400px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background-image: var(--city-bg);
+            background-size: cover;
+            background-position: center;
+            transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-glass {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 14, 23, 0.75); /* 遮罩，讓文字清晰 */
+            backdrop-filter: blur(10px); /* 磨砂核心 */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.5s;
+        }
+
+        .archive-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .archive-card:hover .card-glass {
+            background: rgba(10, 14, 23, 0.4); /* 滑過時背景圖變清楚 */
+            backdrop-filter: blur(2px);
+        }
+
+        .region-tag {
+            font-family: 'Orbitron';
+            color: var(--spark-blue);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .region-tag.active {
+            color: var(--spark-orange);
+            text-shadow: 0 0 10px var(--spark-orange);
+        }
+
+        .archive-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .status {
+            font-family: 'Orbitron';
+            font-size: 0.85rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 10px;
+        }
+
+        /* --- 頁尾跑馬燈 --- */
+        .marquee-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 210, 255, 0.05);
+            border-top: 1px solid rgba(0, 210, 255, 0.3);
+            padding: 12px 0;
+            backdrop-filter: blur(15px);
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: marqueeMove 35s linear infinite;
+        }
+
+        .marquee-content span {
+            color: var(--spark-blue);
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            margin-right: 60px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes marqueeMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- 回首頁按鈕 --- */
+        .back-home-btn {
+            position: fixed;
+            left: 40px;
+            bottom: 60px;
+            background: var(--spark-dark);
+            border: 2px solid var(--spark-blue);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            z-index: 2000;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-home-btn:hover {
+            background: var(--spark-blue);
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* 手機版適應 */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .back-home-btn { left: 20px; bottom: 80px; padding: 10px 15px; }
+            .archive-card { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo">ENJOYAI-<span>TAIWAN</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="index.html#competition-rules">競賽規範</a></li>
+            <li><a href="other-events.html" style="color: var(--spark-blue);">其他賽事</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <main class="events-archive-container">
+        
+        <section class="map-display-section">
+            <span class="section-tag">GLOBAL_DATA_VISUALIZATION_SCAN</span>
+            <div class="glass-frame">
+                <div class="l-frame top-left"></div>
+                <div class="l-frame bottom-right"></div>
+                <img src="enjoyai-open.jpg" alt="Enjoy AI Global Map" class="original-map">
+            </div>
+        </section>
+
+        <section class="events-grid">
+            <div class="archive-card" style="--city-bg: url('city-istanbul.jpg');">
+                <div class="card-glass">
+                    <div class="card-content">
+                        <span class="region-tag">EURASIAN</span>
+                        <h3>Istanbul, Turkey</h3>
+                        <p class="status">STATUS: T.B.D</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="archive-card" style="--city-bg: url('city-canada.jpg');">
+                <div class="card-glass">
+                    <div class="card-content">
+                        <span class="region-tag">AMERICAN</span>
+                        <h3>Markham, Canada</h3>
+                        <p class="status">DATE: July 18-19</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="archive-card" style="--city-bg: url('city-vietnam.jpg');">
+                <div class="card-glass">
+                    <div class="card-content">
+                        <span class="region-tag active">ASIAN OPEN</span>
+                        <h3>Hanoi, Vietnam</h3>
+                        <p class="status">DATE: August 23-24</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="archive-card" style="--city-bg: url('city-ghana.jpg');">
+                <div class="card-glass">
+                    <div class="card-content">
+                        <span class="region-tag">AFRICAN</span>
+                        <h3>Accra, Ghana</h3>
+                        <p class="status">DATE: Sept 24-25</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="archive-card" style="--city-bg: url('city-bosnia.jpg');">
+                <div class="card-glass">
+                    <div class="card-content">
+                        <span class="region-tag">EUROPEAN</span>
+                        <h3>Travnik, Bosnia</h3>
+                        <p class="status">DATE: October 3-5</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-home-btn">
+            <i class="fas fa-arrow-left"></i> BACK_TO_BASE
+        </a>
+    </main>
+
+    <footer class="marquee-footer">
+        <div class="marquee-content">
+            <span>ENJOY AI 2026 GLOBAL OPEN SERIES --- CURRENT STATUS: SYSTEM ACTIVE --- CONNECTING TO HANOI, VIETNAM... --- SCANNING GLOBAL NODES --- </span>
+            <span>ENJOY AI 2026 GLOBAL OPEN SERIES --- CURRENT STATUS: SYSTEM ACTIVE --- CONNECTING TO HANOI, VIETNAM... --- SCANNING GLOBAL NODES --- </span>
+        </div>
+    </footer>
+
+</body>
+</html>
