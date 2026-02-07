@@ -158,7 +158,7 @@
             position: absolute;
             inset: 0;
             background: rgba(10, 14, 23, 0.75); /* 遮罩，讓文字清晰 */
-            backdrop-filter: blur(10px); /* 磨砂核心 */
+            backdrop-filter: blur(3px); /* 磨砂核心 */
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -172,11 +172,13 @@
             box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
         }
 
-        .archive-card:hover .card-glass {
-            background: rgba(10, 14, 23, 0.4); /* 滑過時背景圖變清楚 */
-            backdrop-filter: blur(2px);
-        }
-
+       /* --- 滑鼠移上去：完全清晰 --- */
+.archive-card:hover .card-glass {
+    /* 背景遮罩幾乎透明 */
+    background: rgba(10, 14, 23, 0.1); 
+    /* 霧感完全消失 (0px) */
+    backdrop-filter: blur(0px);
+}
         .region-tag {
             font-family: 'Orbitron';
             color: var(--spark-blue);
