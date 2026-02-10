@@ -586,6 +586,62 @@ html {
     color: black; 
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
+        /* 按鈕容器間距 */
+.main-event-action {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+/* 按鈕主體樣式 */
+.register-btn {
+    position: relative;
+    padding: 10px 35px;
+    background: rgba(0, 243, 255, 0.05);
+    color: #00f3ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+/* 懸停發光效果 */
+.register-btn:hover {
+    background: rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
+    color: #fff;
+    text-shadow: 0 0 8px #00f3ff;
+}
+
+/* L型對焦框特效 */
+.btn-border-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #00f3ff;
+}
+
+.top-left {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.bottom-right {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+/* 懸停時 L 框合攏變成全邊框 */
+.register-btn:hover .btn-border-corner {
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+}
 
 /* 10. 響應式微調 */
 @media (max-width: 768px) {
@@ -865,6 +921,7 @@ html {
         transition: 0.3s;
     }
 } /* @media 結束 */
+        
 </style>
 </head>
         
@@ -922,6 +979,14 @@ html {
             <p class="date-text">8 月 23 日 － 8 月 24 日</p>
         </div>
         <div class="energy-line"></div>
+        
+        <div class="main-event-action">
+            <a href="#" class="register-btn">
+                <span class="btn-text">立即報名</span>
+                <div class="btn-border-corner top-left"></div>
+                <div class="btn-border-corner bottom-right"></div>
+            </a>
+        </div>
     </div>
 </div>
    <section id="competition-rules" class="rules-section">
