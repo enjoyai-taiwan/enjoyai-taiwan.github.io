@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="探索 Enjoy AI 2026 全球青少年人工智慧普及活動。臺灣智能程式科技教育推廣協會 (SPARK) 為您帶來最流暢的動態導覽與專業競賽支援，讓孩子輕鬆開啟 AI 學習之旅。">
-<meta name="keywords" content="Enjoy AI, 人工智慧比賽, 機器人競賽, SPARK, 臺灣智能程式科技教育推廣協會, 程式設計, 智慧教育">
-<meta property="og:title" content="Enjoy AI 2026 競賽專區 | 體驗 AI 實作魅力">
-<meta property="og:description" content="最完美的 Enjoy AI 競賽網頁，提供完整任務簡介與技術支援。">
+    <meta name="description" content="ENJOY AI 2026 亞洲公開賽 - 北越五天四夜國際文教團。由 SPARK 臺灣智能程式科技教育推廣協會主辦，提供最專業的競賽支援與世界級文化體驗。">
     <title>ENJOY AI 2026 | 臺灣智能程式科技教育推廣協會 SPARK</title>
-    <meta name="description" content="Enjoy AI 臺灣官方授權平台。全球青少年人工智能普及活動，讓孩子從零開始學習 AI 與機器人技術，邁向國際舞台的第一哩路。">
-<meta name="keywords" content="Enjoy AI, Enjoy AI Taiwan, 普及賽, AI 啟蒙, 機器人教育, SPARK, 臺灣智能程式科技教育推廣協會,">
-    <link rel="canonical" href="https://你的用戶名.github.io/enjoyai-taiwan/index.html" />
     
     <style>
-        /* --- 1. 全局變數與基礎設定 --- */
         :root {
             --spark-blue: #00d2ff;     
             --spark-orange: #ff9d00;   
@@ -28,1126 +21,235 @@
             margin: 0;
             font-family: 'Noto Sans TC', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-       /* --- 2. 導覽列：優化版 --- */
-      nav {
+        /* 導覽列 */
+        nav {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 210, 255, 0.2);
             padding: 15px 5%;
             display: flex;
-            justify-content: space-between; /* 讓 Logo 與選單分開至兩端 */
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0; 
             width: 100%; 
-            box-sizing: border-box; /* 確保寬度計算正確 */
+            box-sizing: border-box;
             z-index: 1000;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--spark-white);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .logo-container { display: flex; align-items: center; }
+        .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
         .logo span { color: var(--spark-blue); }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            position: relative;
-            margin-left: 25px; /* 控制選項間距 */
-        }
-
-        .nav-links a {
-            color: var(--spark-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            display: block;
-        }
-        
+        .nav-links { display: flex; list-style: none; margin: 0; padding: 0; }
+        .nav-links li { margin-left: 25px; position: relative; }
+        .nav-links a { color: var(--spark-white); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--spark-blue); }
 
-        /* --- 下拉選單樣式 --- */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1a202c; 
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-            z-index: 1;
-            border-radius: 4px;
-            top: 100%; 
-            right: 0; /* 下拉選單靠右對齊，防止超出螢幕 */
-            padding: 10px 0;
-        }
-
-        .dropdown-content a {
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        .nav-links li:hover .dropdown-content {
-            display: block;
-        }
-
-        /* --- 3. 首頁 Banner 恢復排版 --- */
+        /* Hero 區塊 */
         .hero {
-            height: 85vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
         }
 
-        .hero-logo-wrapper img {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3));
+        .hero h1 { font-size: 3.5rem; margin: 0; background: linear-gradient(45deg, #fff, var(--spark-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.4rem; letter-spacing: 4px; margin-top: 20px; color: var(--spark-white); }
+        .hero .date-badge { background: var(--spark-orange); color: #000; padding: 10px 30px; border-radius: 50px; font-weight: 900; margin-top: 30px; font-size: 1.2rem; box-shadow: 0 0 20px rgba(255, 157, 0, 0.4); }
+
+        /* 區塊標題 */
+        .section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; color: var(--spark-blue); text-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+
+        /* 賽項介紹 */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 10%; }
+        .project-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,210,255,0.2); border-radius: 15px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--spark-blue); }
+        .project-card > img { width: 100%; height: 200px; object-fit: cover; }
+        .project-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-card h3 { color: var(--spark-orange); margin-top: 0; margin-bottom: 10px; }
+        .project-card p.eng-desc { font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; font-style: italic; margin-bottom: 20px; }
+        .age-tag { display: inline-block; background: rgba(0,210,255,0.1); color: var(--spark-blue); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 15px; align-self: flex-start; }
+
+        /* 設備專區 */
+        .equipment-box { background: rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 15px; margin-top: auto; display: flex; align-items: center; gap: 15px; border-left: 3px solid var(--spark-blue); }
+        .equipment-box img { width: 70px; height: auto; border-radius: 4px; background: #fff; padding: 2px; }
+        .equipment-box p { margin: 0; font-size: 0.9rem; color: var(--spark-blue); font-weight: bold; }
+
+        /* 年齡圖表與規則區塊 */
+        .rules-section { padding: 20px 10%; text-align: center; }
+        .rules-image-container { max-width: 800px; margin: 0 auto 40px; }
+        .rules-image-container img { width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(0, 210, 255, 0.3); box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
+        .rules-btn { display: inline-block; padding: 15px 40px; border: 2px solid var(--spark-blue); color: var(--spark-blue); background: transparent; border-radius: 8px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; margin-bottom: 20px; }
+        .rules-btn:hover { background: var(--spark-blue); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
+
+        /* 設備政策區塊 */
+        .policy-box { background: rgba(0, 210, 255, 0.05); border: 2px dashed var(--spark-blue); margin: 50px 10%; padding: 40px; border-radius: 15px; text-align: center; }
+        .policy-box p { line-height: 1.8; font-size: 1.05rem; color: #cbd5e1; }
+
+        /* 旅遊亮點區塊 (雙圖並列) */
+        .travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 10%; }
+        .travel-item { position: relative; border-radius: 10px; overflow: hidden; height: 250px; }
+        .travel-images { display: flex; width: 100%; height: 100%; }
+        .travel-images img { width: 50%; height: 100%; object-fit: cover; }
+        .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; letter-spacing: 1px; }
+
+        /* 報名區塊 */
+        .register-section { text-align: center; padding: 80px 10%; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
+        .early-bird { font-size: 1.5rem; color: var(--spark-orange); font-weight: bold; margin-bottom: 20px; }
+        .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; }
+        .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; }
+        .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--spark-blue); }
+
+        /* 側邊導航 */
+        .side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 2000; }
+        .side-btn { background: rgba(0, 210, 255, 0.1); border: 1px solid var(--spark-blue); color: var(--spark-white); padding: 15px 8px; text-decoration: none; font-size: 0.8rem; writing-mode: vertical-lr; letter-spacing: 2px; border-radius: 4px; backdrop-filter: blur(5px); transition: 0.3s; }
+        .side-btn:hover { background: var(--spark-orange); color: #000; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .rules-btn { padding: 12px 20px; font-size: 1rem; }
         }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            margin: 0;
-            background: linear-gradient(45deg, #fff, var(--spark-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            letter-spacing: 5px;
-            margin-top: 15px;
-            color: var(--spark-white);
-            opacity: 0.8;
-        }
-
-        /* --- 4. 右側懸浮按鈕 --- */
-        .side-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 2000;
-        }
-
-        .side-btn {
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid var(--spark-blue);
-            color: var(--spark-white);
-            padding: 15px 8px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            writing-mode: vertical-lr;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            backdrop-filter: blur(5px);
-            transition: 0.3s;
-        }
-
-        .side-btn:hover {
-            background: var(--spark-orange);
-            border-color: var(--spark-orange);
-            color: #000;
-            transform: translateX(-5px);
-        }
-
-        /* 底部樣式簡化 */
-        footer {
-            padding: 40px 10%;
-            background: #05070a;
-            text-align: center;
-            border-top: 1px solid rgba(0, 210, 255, 0.1);
-        }
-        /* 下拉選單基礎樣式 */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1a202c; /* 下拉選單背景色 */
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-    z-index: 1;
-    border-radius: 4px;
-    top: 100%; /* 讓選單剛好在按鈕下方 */
-    left: 0;
-}
-
-.dropdown-content a {
-    color: #cbd5e1; /* 下拉選單文字顏色 */
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    white-space: nowrap; /* 防止文字換行 */
-}
-
-.dropdown-content a:hover {
-    background-color: #2d3748; /* 下拉選單項目懸停背景色 */
-    color: var(--spark-blue); /* 懸停文字顏色 */
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-/* --- Hero 內容容器：確保垂直堆疊而不重疊 --- */
-.hero-content {
-    display: flex;
-    flex-direction: column; /* 關鍵：強制由上而下排列 */
-    align-items: center;    /* 水平居中 */
-    justify-content: center;
-    text-align: center;
-    padding: 60px 20px;     /* 增加上下內邊距 */
-}
-/* --- 今年主打賽事：強化版樣式 --- */
-.main-event-feature {
-    width: 100%;
-    padding: 60px 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 210, 255, 0.05), transparent);
-    display: flex;
-    justify-content: center;
-    position: relative;
-    border-top: 1px solid rgba(0, 210, 255, 0.1);
-}
-
-.feature-content {
-    text-align: center;
-    max-width: 900px;
-    width: 90%;
-    position: relative;
-}
-
-/* 輔助小標題 */
-.glitch-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    color: var(--spark-blue);
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-    opacity: 0.8;
-}
-
-.event-main-info h2 {
-    font-size: 3.5rem; /* 大幅度放大 */
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 900;
-    margin: 10px 0;
-    letter-spacing: 2px;
-    background: linear-gradient(to right, #fff, var(--spark-blue), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
-}
-
-/* --- 放大版地點標籤 --- */
-.location-tag {
-    background: var(--spark-orange);
-    color: #000;
-    padding: 8px 25px;       /* 增加內邊距，讓標籤變胖 */
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 900;        /* 字體加到最粗 */
-    font-size: 1.4rem;       /* 從 1.0rem 放大到 1.4rem */
-    border-radius: 6px;      /* 稍微加圓一點點 */
-    display: inline-block;
-    margin-bottom: 15px;     /* 與下方標題增加間距 */
-    letter-spacing: 4px;     /* 增加字母間距，更有科技感 */
-    box-shadow: 0 0 20px rgba(255, 157, 0, 0.4); /* 增加橘色光暈效果 */
-    text-transform: uppercase;
-}
-
-.date-text {
-    font-size: 1.8rem;
-    color: var(--spark-white);
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 3px;
-    margin-top: 10px;
-}
-
-/* 裝飾線條：模擬能量流動 */
-.energy-line {
-    width: 200px;
-    height: 2px;
-    background: var(--spark-blue);
-    margin: 30px auto 0;
-    position: relative;
-    box-shadow: 0 0 15px var(--spark-blue);
-}
-
-.energy-line::before, .energy-line::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--spark-blue);
-    border-radius: 50%;
-    top: -4px;
-    box-shadow: 0 0 10px var(--spark-blue);
-}
-
-.energy-line::before { left: 0; }
-.energy-line::after { right: 0; }
-/* --- 大 LOGO 容器：控制與下方文字的距離 --- */
-.logo-interaction-wrapper {
-    perspective: 1000px;
-    margin-bottom: 40px;    /* 這裡控制 LOGO 和文字之間的「安全距離」 */
-    z-index: 10;
-    width: 100%;            /* 確保容器寬度足夠 */
-    display: flex;
-    justify-content: center;
-}
-
-/* --- LOGO 本體：大幅度放大並保持動態 --- */
-.hero-main-logo {
-    width: 450px;           /* 顯著放大尺寸 */
-    max-width: 90vw;        /* 確保在手機上不會超出螢幕 */
-    height: auto;           /* 維持比例 */
-    
-    /* 初始發光與動畫 */
-    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4));
-    animation: logoFloat 4s ease-in-out infinite;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s ease;
-    cursor: pointer;
-    will-change: transform; /* 優化效能 */
-}
-
-/* --- 互動感：滑鼠懸停 (保持放大但不會遮擋，因為是推擠佈局) --- */
-.hero-main-logo:hover {
-    transform: scale(1.08) rotateX(5deg); /* 輕微放大與 3D 傾斜 */
-    filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.7));
-}
-
-/* --- 文字樣式：確保清晰且有層次 --- */
-.hero-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;      /* 標題大小 */
-    font-weight: 700;
-    margin: 0 0 10px 0;     /* 移除多餘邊距，精確控制 */
-    white-space: nowrap;    /* 防止換行 */
-}
-
-.hero-subtitle {
-    font-size: 1.6rem;      /* 副標題稍微放大 */
-    letter-spacing: 4px;
-    margin-bottom: 50px;    /* 與按鈕的距離 */
-    opacity: 0.9;
-}
-
-/* --- 浮動動畫 --- */
-@keyframes logoFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-25px); /* 向上漂浮的幅度 */
-    }
-}
-        /* 聯絡區塊基礎設置 */
-.contact-section {
-    padding: 80px 0;
-    text-align: center;
-    background: transparent;
-}
-
-/* 社群卡片容器 */
-.social-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding-top: 40px;
-}
-
-/* 高科技社群圖框 */
-.social-card {
-    text-decoration: none;
-    color: #fff;
-    perspective: 1000px;
-    /* 持續漂浮動畫，三個卡片給予不同的延遲時間讓動態更有層次 */
-    animation: floatingCard 4s ease-in-out infinite;
-}
-
-.social-card:nth-child(2) { animation-delay: 0.5s; }
-.social-card:nth-child(3) { animation-delay: 1s; }
-
-.card-inner {
-    width: 140px;
-    height: 160px;
-    background: rgba(15, 15, 25, 0.8);
-    border: 2px solid #00ffff; /* 初號機螢光藍邊框 */
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-/* 圖框上方的掃描光束特效 */
-.card-inner::after {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-    transition: 0.5s;
-}
-
-/* 圖像框 */
-.icon-box {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-icon {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-}
-
-/* --- 觸碰動態回饋 (Hover) --- */
-.social-card:hover .card-inner {
-    transform: translateY(-10px) rotateX(10deg) scale(1.1);
-    border-color: #ff00ff; /* 觸碰時變為初號機紫/粉色系 */
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6), inset 0 0 20px rgba(255, 0, 255, 0.4);
-}
-
-.social-card:hover .card-inner::after {
-    top: -50%;
-    left: -50%;
-}
-
-.social-card span {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* --- 動畫：持續漂浮 --- */
-@keyframes floatingCard {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-/* 平滑捲動 */
-html {
-    scroll-behavior: smooth;
-}
-        /* 鯨魚機器人區塊排版 */
-/* 1. 標題置中與樣式優化 */
-#whale-robot .section-title {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: white;
-    letter-spacing: 2px;
-}
-
-/* 2. 容器調整：限制最大寬度並置中 */
-.whale-grid-container {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    color: white;
-    max-width: 1100px; /* 限制寬度，避免佔據整個頁面 */
-    margin: 0 auto;    /* 水平置中容器 */
-}
-
-/* 3. 卡片調整：設定彈性佈局解決重疊問題 */
-.whale-card {
-    flex: 1;
-    background: rgba(15, 15, 25, 0.9);
-    border: 2px solid #00ffff; /* 螢光藍邊框 */
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    /* 新增：確保內容垂直排列並撐開間距 */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: 520px; /* 確保左右卡片高度一致 */
-}
-
-/* 4. 圖片格調整：縮小高度，符合視覺比例 */
-.image-slots {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.slot {
-    flex: 1;
-    border: 1px dashed rgba(255, 145, 0, 0.5); /* 降低虛線亮度 */
-    padding: 8px;
-    min-height: auto; 
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease; /* 為了觸碰回饋 */
-}
-
-/* 5. 觸碰回饋：滑鼠移到圖片格會發亮並浮起 */
-.slot:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-}
-
-.slot img {
-    width: 100%;
-    max-width: 180px; 
-    height: auto;
-    border-radius: 5px;
-    display: block;
-    margin: 0 auto 10px auto;
-}
-
-/* 6. 右側電腦版圖片特別優化 */
-.large-slot img {
-    max-width: 320px; 
-    transition: transform 0.3s ease;
-}
-
-/* 7. 文字描述區：增加間距解決重疊 */
-.whale-card p {
-    margin: 15px 0 25px 0; /* 增加底部外距，推開按鈕 */
-    line-height: 1.6;
-    color: #e0e0e0;
-    font-size: 0.95rem;
-}
-
-/* 8. 按鈕群組：確保置於底部 */
-.download-btn-group {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: auto; /* 關鍵：將按鈕群組推至卡片底部 */
-    padding-top: 10px;
-}
-
-/* 9. 按鈕樣式：保留您的螢光藍邊框風格 */
-.download-btn {
-    padding: 12px 24px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #00ffff; 
-    background: transparent;
-    border: 2px solid #00ffff; 
-    border-radius: 5px;
-    transition: 0.3s;
-    font-size: 0.9rem;
-    white-space: nowrap; /* 避免按鈕文字換行 */
-}
-
-.download-btn:hover {
-    background: #00ffff;
-    color: black; 
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-}
-        /* 按鈕容器間距 */
-.main-event-action {
-    margin-top: 25px;
-    padding-bottom: 10px;
-}
-
-/* 按鈕主體樣式 */
-.register-btn {
-    position: relative;
-    padding: 10px 35px;
-    background: rgba(0, 243, 255, 0.05);
-    color: #00f3ff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    border: 1px solid rgba(0, 243, 255, 0.3);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
-}
-
-/* 懸停發光效果 */
-.register-btn:hover {
-    background: rgba(0, 243, 255, 0.2);
-    box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
-    color: #fff;
-    text-shadow: 0 0 8px #00f3ff;
-}
-
-/* L型對焦框特效 */
-.btn-border-corner {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border: 2px solid #00f3ff;
-}
-
-.top-left {
-    top: -2px;
-    left: -2px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.bottom-right {
-    bottom: -2px;
-    right: -2px;
-    border-left: none;
-    border-top: none;
-}
-
-/* 懸停時 L 框合攏變成全邊框 */
-.register-btn:hover .btn-border-corner {
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-}
-
-/* 10. 響應式微調 */
-@media (max-width: 768px) {
-    .whale-grid-container {
-        flex-direction: column;
-        padding: 10px;
-    }
-    
-    .whale-card {
-        width: 100%;
-        min-height: auto;
-    }
-
-    .slot img {
-        max-width: 140px; 
-    }
-}
-/* 1. 標題置中與整體佈局 */
-.rules-section {
-    width: 100%;
-    padding: 80px 0;
-    background: #05050a;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 確保標題與內容全部水平置中 */
-}
-
-.rules-section .section-title {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 60px;
-    font-size: 2.5rem;
-    color: white;
-    letter-spacing: 3px;
-}
-
-.rules-grid {
-    display: flex;
-    gap: 50px;
-    align-items: center; /* 確保左右高度對齊 */
-    max-width: 1200px;
-    width: 95%;
-    perspective: 1500px; /* 強化 3D 深度感 */
-}
-
-/* 2. 左側相框：流水燈核心 (框不動，光在跑) */
-.photo-frame-wrapper {
-    flex: 1.2; /* 稍微加大相框比例 */
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1; /* 保持正方形比例 */
-    border-radius: 25px;
-    padding: 4px; /* 這就是流水燈的寬度 */
-    background: rgba(255, 255, 255, 0.05);
-    overflow: visible; /* 允許破框浮出 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* 流水燈動畫：僅旋轉背景漸變 */
-.photo-frame-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 27px;
-    /* 流水燈顏色：螢光藍與桃紅 */
-    background: conic-gradient(from var(--angle), #00ffff, #ff00ff, #00ffff);
-    animation: rotateAngle 3s linear infinite;
-    z-index: 0;
-}
-
-/* 遮罩層：蓋住中間，只露出邊緣的光 */
-.photo-frame-wrapper::after {
-    content: "";
-    position: absolute;
-    inset: 4px; /* 邊框粗度 */
-    background: #05050a;
-    border-radius: 22px;
-    z-index: 1;
-}
-
-@property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-}
-
-@keyframes rotateAngle {
-    to { --angle: 360deg; }
-}
-
-/* 3. 圖片容器與破框特效 (Pop-out Effect) */
-.photo-container {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    z-index: 2;
-    transform-style: preserve-3d;
-    transition: transform 0.5s ease-out;
-}
-
-.main-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 確保機器人圖片不被裁切 */
-    border-radius: 15px;
-    transition: all 0.5s ease;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.3));
-}
-
-/* 懸停觸發：圖片破框浮出 */
-.photo-frame-wrapper:hover .photo-container {
-    transform: translateZ(80px) translateY(-20px) rotateX(5deg);
-}
-
-.photo-frame-wrapper:hover .main-photo {
-    filter: drop-shadow(0 30px 50px rgba(0, 255, 255, 0.8)) brightness(1.2);
-    /* 這裡可以增加 scale 讓它看起來更大 */
-    transform: scale(1.1);
-}
-
-/* 4. 右側規則內容區 */
-.info-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.info-card {
-    background: rgba(20, 25, 45, 0.9);
-    border: 1px solid rgba(0, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.info-card h3 {
-    color: #ff9100;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* 任務清單網格化，避免過長 */
-.mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    color: #b0b0b0;
-    font-size: 1rem;
-}
-
-/* 5. 底部按鈕置中 */
-.action-bar {
-    width: 100%;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.pdf-btn {
-    padding: 15px 40px;
-    border: 2px solid #00ffff;
-    color: #00ffff;
-    background: transparent;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.pdf-btn:hover {
-    background: #00ffff;
-    color: #000;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-}
-
-/* 響應式：手機版改為上下擺放 */
-@media (max-width: 992px) {
-    .rules-grid {
-        flex-direction: column;
-    }
-    .photo-frame-wrapper {
-        max-width: 400px;
-    }
-}
-        html {
-    scroll-behavior: smooth; /* 讓全站錨點跳轉變成平滑捲動 */
-}
-
-/* 考慮到導覽列高度，可以加上捲動偏移，避免標題被導覽列遮住 */
-.rules-section {
-    scroll-margin-top: 80px; /* 數值根據你導覽列的高度決定 */
-}
-        /* --- 漢堡選單基礎樣式 (預設隱藏) --- */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-.menu-toggle span {
-    width: 100%;
-    height: 3px;
-    background-color: var(--spark-blue);
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-/* --- 手機版專用 RWD 樣式 (1024px 以下觸發) --- */
-@media (max-width: 1024px) {
-    /* 修正 1：加上點號 .menu-toggle */
-    .menu-toggle {
-        display: flex;
-        z-index: 2100 !important; /* 提高到最高層級 */
-        position: relative; 
-    }
-
-    /* 2. 當選單打開時，讓叉叉按鈕顏色更亮 */
-    .menu-toggle.active span {
-        background-color: #ffffff; 
-        box-shadow: 0 0 10px var(--spark-blue);
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; 
-        width: 70%;
-        height: 100vh;
-        background: rgba(10, 14, 23, 0.98); 
-        backdrop-filter: blur(15px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 2000; /* 選單層級低於按鈕的 2100 */
-        border-left: 2px solid var(--spark-blue);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-        display: flex !important;
-    }
-
-    .nav-links.active {
-        right: 0 !important;
-    }
-
-    .nav-links li {
-        margin: 20px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* 漢堡變 X 的動畫效果 */
-    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-    
-    /* 修正 2：補上 .dropdown-content 的閉合大括號 */
-    .dropdown-content {
-        position: static;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: none;
-        display: block; 
-    } /* <--- 原本漏掉這個 } */
-
-    /* 4. 自動隱藏干擾選單的右側側邊按鈕 (確保在 dropdown 外面) */
-    .nav-links.active ~ .side-nav {
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-    }
-} /* @media 結束 */
-        
-</style>
+    </style>
 </head>
-        
 <body>
 
-  <nav class="navbar">
+<nav>
     <div class="logo-container">
-        <img src="nav-logo.png" alt="LOGO" style="max-height: 35px; margin-right: 12px;">
         <div class="logo">ENJOYAI-<span>TAIWAN</span></div>
     </div>
-
-    <ul class="nav-links" id="nav-links">
-        <li><a href="#">首頁</a></li>
-        <li><a href="#competition-rules">競賽規範</a></li>
-        <li><a href="#contact">聯絡我們</a></li>
-        <li><a href="#whale-robot">鯨魚機器人</a></li>
-        <li><a href="other-events.html">其他賽事</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">賽事回顧 ▼</a>
-            <div class="dropdown-content">
-                <a href="2025-recap.html">2025 賽季</a>
-            </div>
-        </li>
+    <ul class="nav-links">
+        <li><a href="#home">首頁</a></li>
+        <li><a href="#projects">正式賽項</a></li>
+        <li><a href="#rules">賽事規範</a></li>
+        <li><a href="#travel">行程亮點</a></li>
+        <li><a href="#register">報名資訊</a></li>
     </ul>
-
-    <div id="menu-toggle" class="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
 </nav>
 
-    <div class="side-nav">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform"class="side-btn">前往報名</a>
-        <a href="https://drive.google.com/file/d/19G8X7hl9xZKY4qnyceEt4LL8duWtCcZd/view?usp=drive_link" class="side-btn" target="_blank">題庫專區</a>
-        <a href="https://lin.ee/LaLJ6yF" target="_blank" class="side-btn">匯款完成表單</a>
-        <a href="https://line.me/ti/g2/FNWqLk607iujf_GImFkdjOA-aPmEJ7xCTlho1A?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="side-btn">加入群組</a>
-    </div>
-
- <section class="hero" id="home">
-    <div class="hero-content">
-        <div class="logo-interaction-wrapper">
-            <img src="your-logo-file.png" alt="Enjoy AI Logo" class="hero-main-logo">
-        </div>
-        <h1 class="hero-title">ENJOY AI 2026</h1>
-        <p>探索智能程式的無限可能</p>
-    </div> </section>
-<div class="main-event-feature">
-    <div class="feature-content">
-        <div class="glitch-title" data-text="2026 年度主打賽事">2026 年度主打賽事</div>
-        <div class="event-main-info">
-            <span class="location-tag">越南 / 河內</span>
-            <h2>ENJOY AI 亞洲公開賽</h2>
-            <p class="date-text">8 月 23 日 － 8 月 24 日</p>
-        </div>
-        <div class="energy-line"></div>
-        
-        <div class="main-event-action">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn">
-                <span class="btn-text">立即報名</span>
-                <div class="btn-border-corner top-left"></div>
-                <div class="btn-border-corner bottom-right"></div>
-            </a>
-        </div>
-    </div>
+<div class="side-nav">
+    <a href="#register" class="side-btn">前往報名</a>
+    <a href="https://line.me/ti/g2/FNWqLk607iujf_GImFkdjOA-aPmEJ7xCTlho1A" target="_blank" class="side-btn">加入官方群組</a>
 </div>
-   <section id="competition-rules" class="rules-section">
-    <div class="container">
-        <h2 class="section-title">競賽規範 / RULES</h2>
-        
-        <div class="rules-grid">
-            <div class="photo-frame-wrapper">
-                <div class="flow-light-border"></div>
-                <div class="photo-container">
-                    <img src="your-robot-image.jpg" alt="GRG Robot" class="main-photo">
-                    <div class="pop-out-part"></div> </div>
-            </div>
 
-            <div class="info-column">
-                <div class="info-card tech-spec">
-                    <h3><i class="fas fa-cog"></i> 技術規格</h3>
-                    <ul>
-                        <li>啟動尺寸：30 x 30 x 30 cm</li>
-                        <li>動力限制：最多 4 顆馬達 (禁用能機)</li>
-                        <li>感測系統：類型不限，禁止黏合材料</li>
-                        <li>零件要求：whalesbot (智能程式積木鯨魚機器人)</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card mission-list">
-                    <h3><i class="fas fa-trophy"></i> 任務清單 (總分 530)</h3>
-                    <div class="mission-grid">
-                        <span>1. 指南針定向</span><span>2. 造紙術模擬</span>
-                        <span>3. 火藥應用</span><span>4. 活字印刷</span>
-                        <span>5. 地震儀檢測</span><span>6. 金字塔搬運</span>
-                        <span>7. 長城加固</span><span>8. 現場加分題</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="action-bar">
-            <a href="#" class="pdf-btn">查看完整 PDF 評分標準</a>
-        </div>
-    </div>
+<section class="hero" id="home">
+    <h1>ENJOY AI 2026 亞洲公開賽</h1>
+    <p>北越河內 · 五天四夜國際文教出團計畫</p>
+    <div class="date-badge">115 年 8 月 21 日 (五) － 8 月 25 日 (二)</div>
+    <p style="font-size: 1rem; opacity: 0.8; margin-top: 20px;">※ 8 月 22 日為全日國際賽事，其餘時間為文化探索行程</p>
 </section>
-        <h2 style="text-align:center; font-family:'Orbitron'; color:var(--spark-blue);">發展願景</h2>
-        <p style="text-align:center; opacity: 0.7;">臺灣智能程式科技教育推廣協會 (SPARK) 致力於推動 AI 教育普及化。</p>
-    </div>
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">聯絡我們</h2>
+
+<section id="projects">
+    <h2 class="section-title">2026 亞洲盃正式賽項</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="project_ancient.jpg" alt="古文明探險家">
+            <div class="project-card-content">
+                <span class="age-tag">建議組別：學前組 / 國小低年級組 (5-9歲)</span>
+                <h3>「古文明探險家」國際普及賽</h3>
+                <p class="eng-desc">By collecting civilization fragments with robots, young starchasers will trace the footsteps of history, uncovering the creative codes behind these legendary civilizations and discovering how human curiosity shaped the world.</p>
+                <div class="equipment-box">
+                    <img src="project_ancient_1.jpg" alt="Equipment">
+                    <p>WhalesBot U30 pro or U20 pro with accessory (mechanical claw)</p>
+                </div>
+            </div>
+        </div>
         
-        <div class="social-container">
-            <a href="https://www.facebook.com/profile.php?id=61586288543256" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-fb-icon.png" alt="Facebook" class="social-icon"> </div>
-                    <span>Facebook</span>
+        <div class="project-card">
+            <img src="project_drone.jpg" alt="極速飛行">
+            <div class="project-card-content">
+                <span class="age-tag">建議組別：學前組至國小高年級組 (5-12歲)</span>
+                <h3>「極速飛行」無人機足球亞洲盃</h3>
+                <p class="eng-desc">Drone Cup is a dynamic team competition that integrates drone robotics, real-time communication, and intelligent decision-making. Teams must collaboratively pilot drones in a high-speed environment to achieve strategic objectives.</p>
+                <div class="equipment-box">
+                    <img src="project_drone_1.jpg" alt="Equipment">
+                    <p>WhalesBot Eagle 125F</p>
                 </div>
-            </a>
-
-            <a href="https://www.instagram.com/enjoyai__taiwan/?igsh=aW9xaGV2M2ptbzF6&utm_source=qr#" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-ig-icon.png" alt="Instagram" class="social-icon"> </div>
-                    <span>Instagram</span>
-                </div>
-            </a>
-
-            <a href="https://www.threads.com/@enjoyai__taiwan?invite=0" target="_blank" class="social-card">
-                <div class="card-inner">
-                    <div class="icon-box">
-                        <img src="path-to-your-threads-icon.png" alt="Threads" class="social-icon"> </div>
-                    <span>Threads</span>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-    <section id="whale-robot" class="eva-border-container">
-    <h2 class="section-title">鯨魚機器人專業版</h2>
-    
-    <div class="whale-grid-container">
-        <div class="whale-card left-side">
-            <h3>移動端下載點</h3>
-            <div class="image-slots">
-                <div class="slot">
-                    <img src="your-image-url-1.png" alt="APP 下載圖 1">
-                    <p>專業版 APP 下載 (iOS)</p>
-                </div>
-                <div class="slot">
-                    <img src="your-image-url-2.png" alt="APP 下載圖 2">
-                    <p>專業版 APP 下載 (Android)</p>
-                </div>
-            </div>
-            <div class="description-text">
-                這是鯨魚機器人專業版，提供行動裝置最強大的遙控與簡易編程功能。
             </div>
         </div>
 
-        <div class="whale-card right-side">
-            <h3>鯨魚積木編程 (專業版)</h3>
-            <div class="image-slots">
-                <div class="slot large-slot">
-                    <img src="your-pc-image.png" alt="電腦版軟體截圖">
+        <div class="project-card">
+            <img src="project_battle.jpg" alt="星際對決">
+            <div class="project-card-content">
+                <span class="age-tag">建議組別：國小高年級至高中組 (9-18歲)</span>
+                <h3>「星際對決」青少年機器人對戰賽</h3>
+                <p class="eng-desc">High-stakes competitive challenge where two teams - Red and Blue - go head-to-head. In the game, team members must communicate clearly, make quick decisions, and adjust their strategy as the situation on the field changes.</p>
+                <div class="equipment-box">
+                    <img src="project_battle_1.jpg" alt="Equipment">
+                    <p>WhalesBot AI Module 3s</p>
                 </div>
-            </div>
-            <div class="description-text">
-                專為競賽設計的桌面級編程環境，支援更複雜的邏輯與傳感器應用。
-            </div>
-            <div class="download-btn-group">
-                <a href="https://wwuu.lanzouo.com/mercury-windows" target="_blank" class="download-btn win">Windows 版</a>
-                <a href="https://wwuu.lanzouo.com/scratch-pro-mac" target="_blank" class="download-btn mac">Mac 版</a>
             </div>
         </div>
     </div>
 </section>
-    <title>Enjoy AI 2026 競賽專區 | 臺灣智能程式科技教育推廣協會 SPARK</title>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
 
-    if (menuToggle && navLinks) {
-        // 點擊漢堡切換
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // 點擊選項後自動收起選單
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-});
-</script>
-    <footer>
-       <div class="spark-competition-footer" style="background-color: transparent; padding: 40px 20px; text-align: center; font-family: 'Microsoft JhengHei', sans-serif;">
-    
-    <hr style="border: 0; border-top: 1px solid rgba(0, 255, 255, 0.3); width: 80%; margin-bottom: 30px;">
-
-    <p style="color: #00ffff; font-weight: bold; margin-bottom: 25px; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);">
-        臺灣智能程式科技教育推廣協會 (SPARK) 系列賽事
-    </p>
-    
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        <a href="https://global-robotics-games-taiwan.github.io/" style="text-decoration: none; color: #00ffff; border: 1px solid #00ffff; padding: 10px 22px; border-radius: 5px; transition: 0.3s; font-size: 14px; background: rgba(0, 255, 255, 0.05); box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);" onmouseover="this.style.backgroundColor='#00ffff'; this.style.color='#000'; this.style.boxShadow='0 0 20px #00ffff';" onmouseout="this.style.backgroundColor='rgba(0, 255, 255, 0.05)'; this.style.color='#00ffff'; this.style.boxShadow='0 0 8px rgba(0, 255, 255, 0.2)';">
-            GRG 2026 全球機器人運動會
-        </a>
-        
-        <a href="https://junior-botball-challenge-taiwan.github.io/index.html" style="text-decoration: none; color: #00ffff; border: 1px solid #00ffff; padding: 10px 22px; border-radius: 5px; transition: 0.3s; font-size: 14px; background: rgba(0, 255, 255, 0.05); box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);" onmouseover="this.style.backgroundColor='#00ffff'; this.style.color='#000'; this.style.boxShadow='0 0 20px #00ffff';" onmouseout="this.style.backgroundColor='rgba(0, 255, 255, 0.05)'; this.style.color='#00ffff'; this.style.boxShadow='0 0 8px rgba(0, 255, 255, 0.2)';">
-            JBC 2026 Junior Botball Challenge
-        </a>
+<section id="rules" class="rules-section">
+    <h2 class="section-title">賽事組別與規範</h2>
+    <div class="rules-image-container">
+        <img src="age_divisions.png" alt="賽事組別與年齡對照表">
     </div>
-    
-    <p style="font-size: 12px; color: rgba(0, 255, 255, 0.5); margin-top: 35px; letter-spacing: 1px;">
+    <a href="https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link" class="rules-btn" target="_blank">
+        📥 點此查看 / 下載完整官方比賽規則
+    </a>
+
+    <div class="policy-box">
+        <h3>專業競賽平台公告</h3>
+        <p>本賽事指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）。<br>
+        為確保參賽過程之系統穩定性與公平性，所有參賽選手皆需使用符合官方規格之硬體設備。<br>
+        關於參賽設備之取得方式、軟硬體規格詳情及賽前集訓事宜，請洽詢各地授權合作教學機構。</p>
+    </div>
+</section>
+
+<section id="travel">
+    <h2 class="section-title">國際视野 · 親子共學亮點</h2>
+    <div class="travel-grid">
+        <div class="travel-item">
+            <div class="travel-images">
+                <img src="view_trangan_0.jpg" alt="長安生態區">
+                <img src="view_trangan_1.jpg" alt="長安生態區 2">
+            </div>
+            <div class="caption">世界文化遺產 - 陸龍灣探秘</div>
+        </div>
+        <div class="travel-item">
+            <div class="travel-images">
+                <img src="view_waterpark_0.jpg" alt="河內西湖水上樂園">
+                <img src="view_waterpark_1.jpg" alt="河內西湖水上樂園 2">
+            </div>
+            <div class="caption">河內西湖水上樂園 - 親子同樂</div>
+        </div>
+        <div class="travel-item">
+            <div class="travel-images">
+                <img src="view_hotel_0.jpg" alt="芒青飯店">
+                <img src="view_hotel_1.jpg" alt="芒青飯店 2">
+            </div>
+            <div class="caption">高品質住宿 - 芒青 4 星級飯店</div>
+        </div>
+    </div>
+</section>
+
+<section id="register" class="register-section">
+    <h2 class="section-title">報名資訊</h2>
+    <div class="early-bird">早鳥現金價：NT$ 29,900 / 人</div>
+    <div class="agency-only">⚠ 僅接受「授權教學機構」統一報名，不接受個人報名</div>
+    <br>
+    <p>早鳥優惠截止日期：115 年 5 月 15 日 17:00</p>
+    <br>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">填寫機構意願登記表</a>
+</section>
+
+<footer>
+    <div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5); font-size: 0.8rem;">
         © 2026 臺灣智能程式科技教育推廣協會 (SPARK). All Rights Reserved.
-    </p>
-</div>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
