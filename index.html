@@ -118,7 +118,7 @@
             font-size: 1rem;
             text-align: center;
             color: #f0f4f8;
-            min-width: 800px; /* 防止在手機上擠壓變形 */
+            min-width: 800px;
         }
         
         .rules-table th {
@@ -170,12 +170,27 @@
             padding: 30px 50px;
             border-radius: 10px;
             border-left: 4px solid var(--spark-orange);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 2;
             font-size: 1.1rem;
             color: #f0f4f8;
         }
         .fee-list span { color: var(--spark-orange); font-weight: bold; }
+        
+        /* 團體安全規範聲明樣式 */
+        .safety-notice {
+            text-align: left;
+            display: inline-block;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 20px 40px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4d4d;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #f0f4f8;
+            max-width: 700px;
+        }
         
         .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; margin-top: 10px; }
         .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--spark-blue); }
@@ -189,7 +204,7 @@
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .rules-btn { padding: 12px 20px; font-size: 1rem; }
-            .fee-list { padding: 20px; font-size: 1rem; width: 85%; box-sizing: border-box; }
+            .fee-list, .safety-notice { padding: 20px; font-size: 1rem; width: 85%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -368,6 +383,11 @@
         本次亞洲公開賽出團總費用包含以下項目：<br>
         1. <span>亞洲公開賽國際註冊費</span><br>
         2. <span>北越五天四夜機加酒與行程總費</span>
+    </div><br>
+    
+    <div class="safety-notice">
+        <span style="color: #ff4d4d; font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 5px;">🛡️ 團體安全規範聲明</span>
+        為確保參賽選手之跨國人身安全，並利於賽事期間的後勤支援與統一管理，本屆亞洲盃嚴格執行<strong style="color: var(--spark-orange);">「全團進出」</strong>制。所有報名隊伍均須全程配合協會安排之團體行動，恕不接受自行前往或脫隊行動，敬請見諒與配合。
     </div>
     
     <p style="font-size: 1.05rem; color: #cbd5e1; margin-bottom: 40px; line-height: 1.8;">
