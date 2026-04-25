@@ -49,7 +49,7 @@
         .nav-links a { color: var(--spark-white); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--spark-blue); }
 
-        /* Hero 區塊：優化版面以容納大合照 */
+        /* Hero 區塊 */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -61,7 +61,7 @@
             background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
         }
 
-        /* 去年國家大合照樣式 */
+        /* 國家大合照樣式 */
         .national-team-photo {
             width: 100%;
             max-width: 900px;
@@ -100,59 +100,22 @@
 
         /* 規範表格與規則區塊 */
         .rules-section { padding: 20px 10%; text-align: center; }
+        .rules-table-container { width: 100%; max-width: 1100px; margin: 0 auto 40px; overflow-x: auto; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.3); box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
+        .rules-table { width: 100%; border-collapse: collapse; font-size: 1rem; text-align: center; color: #f0f4f8; min-width: 800px; }
+        .rules-table th { background: rgba(0, 210, 255, 0.15); color: var(--spark-blue); padding: 15px; font-weight: bold; letter-spacing: 1px; border-bottom: 2px solid rgba(0, 210, 255, 0.3); }
+        .rules-table td { padding: 15px; border-bottom: 1px solid rgba(0, 210, 255, 0.1); border-right: 1px solid rgba(0, 210, 255, 0.05); vertical-align: middle; }
         
-        .rules-table-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto 40px;
-            overflow-x: auto;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
-        }
-        
-        .rules-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 1rem;
-            text-align: center;
-            color: #f0f4f8;
-            min-width: 800px;
-        }
-        
-        .rules-table th {
-            background: rgba(0, 210, 255, 0.15);
-            color: var(--spark-blue);
-            padding: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-bottom: 2px solid rgba(0, 210, 255, 0.3);
-        }
-        
-        .rules-table td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
-            border-right: 1px solid rgba(0, 210, 255, 0.05);
-            vertical-align: middle;
-        }
-        
-        .rules-table tr:hover { background: rgba(0, 210, 255, 0.05); }
-        .rules-table td:last-child { border-right: none; }
-        
-        /* 標籤樣式 */
+        /* 標籤與按鈕樣式 */
         .mode-mix { background: rgba(254, 243, 199, 0.15); color: #fcd34d; padding: 4px 10px; border-radius: 4px; border: 1px solid #fcd34d; font-size: 0.9rem; white-space: nowrap; }
         .mode-manual { background: rgba(219, 234, 254, 0.15); color: #93c5fd; padding: 4px 10px; border-radius: 4px; border: 1px solid #93c5fd; font-size: 0.9rem; white-space: nowrap; }
-        .text-left { text-align: left; }
-        
         .rules-btn { display: inline-block; padding: 15px 40px; border: 2px solid var(--spark-blue); color: var(--spark-blue); background: transparent; border-radius: 8px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; margin-bottom: 20px; }
         .rules-btn:hover { background: var(--spark-blue); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
 
-        /* 設備政策區塊 */
+        /* 設備與安全政策區塊 */
         .policy-box { background: rgba(0, 210, 255, 0.05); border: 2px dashed var(--spark-blue); margin: 50px auto; max-width: 1100px; padding: 40px; border-radius: 15px; text-align: center; }
         .policy-box p { line-height: 1.8; font-size: 1.05rem; color: #cbd5e1; }
 
-        /* 旅遊亮點區塊 (雙圖並列) */
+        /* 旅遊亮點區塊 */
         .travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 10%; }
         .travel-item { position: relative; border-radius: 10px; overflow: hidden; height: 250px; }
         .travel-images { display: flex; width: 100%; height: 100%; }
@@ -160,40 +123,18 @@
         .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; letter-spacing: 1px; }
 
         /* 報名區塊 */
-        .register-section { text-align: center; padding: 80px 10%; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
+        .register-section { text-align: center; padding: 80px 10% 40px; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
         .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; }
-        
-        .fee-list {
-            text-align: left;
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 30px 50px;
-            border-radius: 10px;
-            border-left: 4px solid var(--spark-orange);
-            margin-bottom: 25px;
-            line-height: 2;
-            font-size: 1.1rem;
-            color: #f0f4f8;
-        }
+        .fee-list { text-align: left; display: inline-block; background: rgba(0, 0, 0, 0.3); padding: 30px 50px; border-radius: 10px; border-left: 4px solid var(--spark-orange); margin-bottom: 25px; line-height: 2; font-size: 1.1rem; color: #f0f4f8; }
         .fee-list span { color: var(--spark-orange); font-weight: bold; }
         
-        /* 團體安全規範聲明樣式 */
-        .safety-notice {
-            text-align: left;
-            display: inline-block;
-            background: rgba(255, 77, 77, 0.1);
-            padding: 20px 40px;
-            border-radius: 10px;
-            border-left: 4px solid #ff4d4d;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            font-size: 1rem;
-            color: #f0f4f8;
-            max-width: 700px;
-        }
-        
+        .safety-notice { text-align: left; display: inline-block; background: rgba(255, 77, 77, 0.1); padding: 20px 40px; border-radius: 10px; border-left: 4px solid #ff4d4d; margin-bottom: 40px; line-height: 1.8; font-size: 1rem; color: #f0f4f8; max-width: 700px; }
         .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; margin-top: 10px; }
         .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--spark-blue); }
+
+        /* 最後聯絡資訊區塊 */
+        .contact-final { text-align: center; padding: 40px 10%; background: #05070a; border-top: 1px solid rgba(0, 210, 255, 0.1); }
+        .contact-final p { font-size: 1.2rem; color: var(--spark-blue); letter-spacing: 2px; font-weight: bold; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); margin: 0; }
 
         /* 側邊導航 */
         .side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 2000; }
@@ -203,7 +144,6 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
-            .rules-btn { padding: 12px 20px; font-size: 1rem; }
             .fee-list, .safety-notice { padding: 20px; font-size: 1rem; width: 85%; box-sizing: border-box; }
         }
     </style>
@@ -230,7 +170,6 @@
 
 <section class="hero" id="home">
     <img src="national_team_2025.jpg" alt="2025 台灣代表隊國家大合照" class="national-team-photo">
-    
     <h1>ENJOY AI 2026 亞洲公開賽</h1>
     <p>北越河內 · 五天四夜國際文教出團計畫</p>
     <div class="date-badge">115 年 8 月 21 日 (五) － 8 月 25 日 (二)</div>
@@ -252,7 +191,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="project-card">
             <img src="project_drone.jpg" alt="極速飛行">
             <div class="project-card-content">
@@ -265,7 +203,6 @@
                 </div>
             </div>
         </div>
-
         <div class="project-card">
             <img src="project_battle.jpg" alt="星際對決">
             <div class="project-card-content">
@@ -283,7 +220,6 @@
 
 <section id="rules" class="rules-section">
     <h2 class="section-title">賽事組別與規格統整</h2>
-    
     <div class="rules-table-container">
         <table class="rules-table">
             <thead>
@@ -299,10 +235,7 @@
             <tbody>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">古代文明<br>(Ancient Civilizations)</td>
-                    <td class="text-left">
-                        • Pre-K (5–6歲)<br>
-                        • Grades 1–3 (6–9歲)
-                    </td>
+                    <td class="text-left">• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)</td>
                     <td>1–2人</td>
                     <td><span class="mode-mix">自動+遙控</span></td>
                     <td>25×25×25 cm</td>
@@ -310,11 +243,7 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">無人機盃<br>(Drone Cup)</td>
-                    <td class="text-left">
-                        • Pre-K (5–6歲)<br>
-                        • Grades 1–3 (6–9歲)<br>
-                        • Grades 4–6 (9–12歲)
-                    </td>
+                    <td class="text-left">• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)<br>• Grades 4–6 (9–12歲)</td>
                     <td>2人</td>
                     <td><span class="mode-manual">純遙控</span></td>
                     <td>125×125×105 mm<br>≤ 42g</td>
@@ -322,11 +251,7 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">星際之戰<br>(Battle of Stars)</td>
-                    <td class="text-left">
-                        • Grades 4–6 (9–12歲)<br>
-                        • Grades 7–9 (12–15歲)<br>
-                        • Grades 10–12 (15–18歲)
-                    </td>
+                    <td class="text-left">• Grades 4–6 (9–12歲)<br>• Grades 7–9 (12–15歲)<br>• Grades 10–12 (15–18歲)</td>
                     <td>2人</td>
                     <td><span class="mode-mix">自動+遙控</span></td>
                     <td>30×30×30 cm</td>
@@ -335,11 +260,7 @@
             </tbody>
         </table>
     </div>
-
-    <a href="https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link" class="rules-btn" target="_blank">
-        📥 點此查看 / 下載完整官方比賽規則
-    </a>
-
+    <a href="https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link" class="rules-btn" target="_blank">📥 點此查看 / 下載完整官方比賽規則</a>
     <div class="policy-box">
         <h3>專業競賽平台公告</h3>
         <p>本賽事指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）。<br>
@@ -378,24 +299,24 @@
 <section id="register" class="register-section">
     <h2 class="section-title">報名資訊與費用說明</h2>
     <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名，恕不開放個人報名</div>
-    
     <div class="fee-list">
         本次亞洲公開賽出團總費用包含以下項目：<br>
         1. <span>亞洲公開賽國際註冊費</span><br>
         2. <span>北越五天四夜機加酒與行程總費</span>
     </div><br>
-    
     <div class="safety-notice">
         <span style="color: #ff4d4d; font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 5px;">🛡️ 團體安全規範聲明</span>
         為確保參賽選手之跨國人身安全，並利於賽事期間的後勤支援與統一管理，本屆亞洲盃嚴格執行<strong style="color: var(--spark-orange);">「全團進出」</strong>制。所有報名隊伍均須全程配合協會安排之團體行動，恕不接受自行前往或脫隊行動，敬請見諒與配合。
     </div>
-    
     <p style="font-size: 1.05rem; color: #cbd5e1; margin-bottom: 40px; line-height: 1.8;">
         ※ 因各地區機構提供之賽前培訓方案不同，<br>
         <strong style="color: #fff; font-size: 1.15rem;">詳細報名費用與早鳥優惠期限，請家長逕行向所屬之授權教學機構洽詢。</strong>
     </p>
-    
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">授權機構專屬報名通道</a>
+</section>
+
+<section class="contact-final">
+    <p>有任何問題請聯繫 SPARK LINE 官方帳號：<span style="color:#fff;">@667zzgzv</span></p>
 </section>
 
 <footer>
