@@ -98,15 +98,58 @@
         .equipment-box img { width: 70px; height: auto; border-radius: 4px; background: #fff; padding: 2px; }
         .equipment-box p { margin: 0; font-size: 0.9rem; color: var(--spark-blue); font-weight: bold; }
 
-        /* 年齡圖表與規則區塊 */
+        /* 規範表格與規則區塊 */
         .rules-section { padding: 20px 10%; text-align: center; }
-        .rules-image-container { max-width: 800px; margin: 0 auto 40px; }
-        .rules-image-container img { width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(0, 210, 255, 0.3); box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
+        
+        .rules-table-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            overflow-x: auto;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
+        }
+        
+        .rules-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            text-align: center;
+            color: #f0f4f8;
+            min-width: 800px; /* 防止在手機上擠壓變形 */
+        }
+        
+        .rules-table th {
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--spark-blue);
+            padding: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.3);
+        }
+        
+        .rules-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            border-right: 1px solid rgba(0, 210, 255, 0.05);
+            vertical-align: middle;
+        }
+        
+        .rules-table tr:hover { background: rgba(0, 210, 255, 0.05); }
+        .rules-table td:last-child { border-right: none; }
+        
+        /* 標籤樣式 */
+        .mode-mix { background: rgba(254, 243, 199, 0.15); color: #fcd34d; padding: 4px 10px; border-radius: 4px; border: 1px solid #fcd34d; font-size: 0.9rem; white-space: nowrap; }
+        .mode-manual { background: rgba(219, 234, 254, 0.15); color: #93c5fd; padding: 4px 10px; border-radius: 4px; border: 1px solid #93c5fd; font-size: 0.9rem; white-space: nowrap; }
+        .text-left { text-align: left; }
+        
         .rules-btn { display: inline-block; padding: 15px 40px; border: 2px solid var(--spark-blue); color: var(--spark-blue); background: transparent; border-radius: 8px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; margin-bottom: 20px; }
         .rules-btn:hover { background: var(--spark-blue); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
 
         /* 設備政策區塊 */
-        .policy-box { background: rgba(0, 210, 255, 0.05); border: 2px dashed var(--spark-blue); margin: 50px 10%; padding: 40px; border-radius: 15px; text-align: center; }
+        .policy-box { background: rgba(0, 210, 255, 0.05); border: 2px dashed var(--spark-blue); margin: 50px auto; max-width: 1100px; padding: 40px; border-radius: 15px; text-align: center; }
         .policy-box p { line-height: 1.8; font-size: 1.05rem; color: #cbd5e1; }
 
         /* 旅遊亮點區塊 (雙圖並列) */
@@ -116,7 +159,7 @@
         .travel-images img { width: 50%; height: 100%; object-fit: cover; }
         .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; letter-spacing: 1px; }
 
-        /* 報名區塊 (更新版：隱藏價格、強調項目) */
+        /* 報名區塊 */
         .register-section { text-align: center; padding: 80px 10%; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
         .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; }
         
@@ -224,10 +267,60 @@
 </section>
 
 <section id="rules" class="rules-section">
-    <h2 class="section-title">賽事組別與規範</h2>
-    <div class="rules-image-container">
-        <img src="age_divisions.png" alt="賽事組別與年齡對照表">
+    <h2 class="section-title">賽事組別與規格統整</h2>
+    
+    <div class="rules-table-container">
+        <table class="rules-table">
+            <thead>
+                <tr>
+                    <th>賽事名稱</th>
+                    <th>參賽年齡層 (Grade / Age)</th>
+                    <th>每隊人數</th>
+                    <th>競賽模式</th>
+                    <th>尺寸與重量限制</th>
+                    <th>硬體限制 (馬達/電壓)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold; color: var(--spark-orange);">古代文明<br>(Ancient Civilizations)</td>
+                    <td class="text-left">
+                        • Pre-K (5–6歲)<br>
+                        • Grades 1–3 (6–9歲)
+                    </td>
+                    <td>1–2人</td>
+                    <td><span class="mode-mix">自動+遙控</span></td>
+                    <td>25×25×25 cm</td>
+                    <td class="text-left">主控內建馬達 + 1個夾取馬達<br>≤ 5V</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: var(--spark-orange);">無人機盃<br>(Drone Cup)</td>
+                    <td class="text-left">
+                        • Pre-K (5–6歲)<br>
+                        • Grades 1–3 (6–9歲)<br>
+                        • Grades 4–6 (9–12歲)
+                    </td>
+                    <td>2人</td>
+                    <td><span class="mode-manual">純遙控</span></td>
+                    <td>125×125×105 mm<br>≤ 42g</td>
+                    <td class="text-left">四軸馬達<br>≤ 5V</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: var(--spark-orange);">星際之戰<br>(Battle of Stars)</td>
+                    <td class="text-left">
+                        • Grades 4–6 (9–12歲)<br>
+                        • Grades 7–9 (12–15歲)<br>
+                        • Grades 10–12 (15–18歲)
+                    </td>
+                    <td>2人</td>
+                    <td><span class="mode-mix">自動+遙控</span></td>
+                    <td>30×30×30 cm</td>
+                    <td class="text-left">≤ 7 個（含舵機）<br>≤ 9V</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
     <a href="https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link" class="rules-btn" target="_blank">
         📥 點此查看 / 下載完整官方比賽規則
     </a>
