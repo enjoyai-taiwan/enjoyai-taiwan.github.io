@@ -49,16 +49,31 @@
         .nav-links a { color: var(--spark-white); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--spark-blue); }
 
-        /* Hero 區塊 */
+        /* Hero 區塊：優化版面以容納大合照 */
         .hero {
-            height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 100px 10% 50px;
             background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
+        }
+
+        /* 去年國家大合照樣式 */
+        .national-team-photo {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            border: 2px solid var(--spark-blue);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+            margin-bottom: 40px;
+            transition: 0.5s;
+        }
+        .national-team-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 210, 255, 0.6);
         }
 
         .hero h1 { font-size: 3.5rem; margin: 0; background: linear-gradient(45deg, #fff, var(--spark-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -101,11 +116,25 @@
         .travel-images img { width: 50%; height: 100%; object-fit: cover; }
         .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; letter-spacing: 1px; }
 
-        /* 報名區塊 */
+        /* 報名區塊 (更新版：隱藏價格、強調項目) */
         .register-section { text-align: center; padding: 80px 10%; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
-        .early-bird { font-size: 1.5rem; color: var(--spark-orange); font-weight: bold; margin-bottom: 20px; }
-        .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; }
-        .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; }
+        .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; }
+        
+        .fee-list {
+            text-align: left;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 50px;
+            border-radius: 10px;
+            border-left: 4px solid var(--spark-orange);
+            margin-bottom: 30px;
+            line-height: 2;
+            font-size: 1.1rem;
+            color: #f0f4f8;
+        }
+        .fee-list span { color: var(--spark-orange); font-weight: bold; }
+        
+        .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; margin-top: 10px; }
         .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--spark-blue); }
 
         /* 側邊導航 */
@@ -117,6 +146,7 @@
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .rules-btn { padding: 12px 20px; font-size: 1rem; }
+            .fee-list { padding: 20px; font-size: 1rem; width: 85%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -141,6 +171,8 @@
 </div>
 
 <section class="hero" id="home">
+    <img src="national_team_2025.jpg" alt="2025 台灣代表隊國家大合照" class="national-team-photo">
+    
     <h1>ENJOY AI 2026 亞洲公開賽</h1>
     <p>北越河內 · 五天四夜國際文教出團計畫</p>
     <div class="date-badge">115 年 8 月 21 日 (五) － 8 月 25 日 (二)</div>
@@ -236,13 +268,22 @@
 </section>
 
 <section id="register" class="register-section">
-    <h2 class="section-title">報名資訊</h2>
-    <div class="early-bird">早鳥現金價：NT$ 29,900 / 人</div>
-    <div class="agency-only">⚠ 僅接受「授權教學機構」統一報名，不接受個人報名</div>
-    <br>
-    <p>早鳥優惠截止日期：115 年 5 月 15 日 17:00</p>
-    <br>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">填寫機構意願登記表</a>
+    <h2 class="section-title">報名資訊與費用說明</h2>
+    <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名，恕不開放個人報名</div>
+    
+    <div class="fee-list">
+        本次亞洲公開賽出團總費用包含以下項目：<br>
+        1. <span>亞洲公開賽國際註冊費</span><br>
+        2. <span>各機構專屬賽前集訓與設備使用費</span><br>
+        3. <span>北越五天四夜機加酒與行程總費</span>
+    </div>
+    
+    <p style="font-size: 1.05rem; color: #cbd5e1; margin-bottom: 40px; line-height: 1.8;">
+        ※ 因各地區機構提供之賽前培訓方案不同，<br>
+        <strong style="color: #fff; font-size: 1.15rem;">詳細報名費用與早鳥優惠期限，請家長逕行向所屬之授權教學機構洽詢。</strong>
+    </p>
+    
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">授權機構專屬報名通道</a>
 </section>
 
 <footer>
