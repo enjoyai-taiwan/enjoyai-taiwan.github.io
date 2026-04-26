@@ -61,7 +61,6 @@
             background: radial-gradient(circle at center, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
         }
 
-        /* 國家大合照樣式 */
         .national-team-photo {
             width: 100%;
             max-width: 900px;
@@ -83,7 +82,7 @@
         /* 區塊標題 */
         .section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; color: var(--spark-blue); text-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
 
-        /* 賽項介紹 */
+        /* 賽項介紹卡片 */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 10%; }
         .project-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,210,255,0.2); border-radius: 15px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
         .project-card:hover { transform: translateY(-10px); border-color: var(--spark-blue); }
@@ -93,58 +92,67 @@
         .project-card p.eng-desc { font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; font-style: italic; margin-bottom: 20px; }
         .age-tag { display: inline-block; background: rgba(0,210,255,0.1); color: var(--spark-blue); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 15px; align-self: flex-start; }
 
-        /* 設備專區 */
         .equipment-box { background: rgba(0, 0, 0, 0.4); border-radius: 8px; padding: 15px; margin-top: auto; display: flex; align-items: center; gap: 15px; border-left: 3px solid var(--spark-blue); }
         .equipment-box img { width: 70px; height: auto; border-radius: 4px; background: #fff; padding: 2px; }
         .equipment-box p { margin: 0; font-size: 0.9rem; color: var(--spark-blue); font-weight: bold; }
 
-        /* 規範表格與規則區塊 */
-        .rules-section { padding: 20px 10%; text-align: center; }
-        .rules-table-container { width: 100%; max-width: 1100px; margin: 0 auto 40px; overflow-x: auto; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.3); box-shadow: 0 0 20px rgba(0, 210, 255, 0.1); }
-        .rules-table { width: 100%; border-collapse: collapse; font-size: 1rem; text-align: center; color: #f0f4f8; min-width: 800px; }
-        .rules-table th { background: rgba(0, 210, 255, 0.15); color: var(--spark-blue); padding: 15px; font-weight: bold; letter-spacing: 1px; border-bottom: 2px solid rgba(0, 210, 255, 0.3); }
-        .rules-table td { padding: 15px; border-bottom: 1px solid rgba(0, 210, 255, 0.1); border-right: 1px solid rgba(0, 210, 255, 0.05); vertical-align: middle; }
+        /* 影音專區樣式 */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
+        .video-card { position: relative; cursor: pointer; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 210, 255, 0.2); transition: 0.3s; }
+        .video-card img { width: 100%; height: auto; display: block; transition: 0.5s; }
+        .video-card:hover img { transform: scale(1.05); filter: brightness(0.7); }
         
-        /* 標籤與按鈕樣式 */
-        .mode-mix { background: rgba(254, 243, 199, 0.15); color: #fcd34d; padding: 4px 10px; border-radius: 4px; border: 1px solid #fcd34d; font-size: 0.9rem; white-space: nowrap; }
-        .mode-manual { background: rgba(219, 234, 254, 0.15); color: #93c5fd; padding: 4px 10px; border-radius: 4px; border: 1px solid #93c5fd; font-size: 0.9rem; white-space: nowrap; }
-        .rules-btn { display: inline-block; padding: 15px 40px; border: 2px solid var(--spark-blue); color: var(--spark-blue); background: transparent; border-radius: 8px; font-weight: bold; font-size: 1.1rem; text-decoration: none; transition: 0.3s; margin-bottom: 20px; }
+        .play-btn-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(0, 210, 255, 0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0.9; transition: 0.3s; }
+        .play-btn-overlay::after { content: ''; display: block; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 20px solid #000; margin-left: 5px; }
+        .video-card:hover .play-btn-overlay { transform: translate(-50%, -50%) scale(1.2); background: var(--spark-orange); }
+        
+        .video-title { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 15px; font-size: 0.9rem; color: #fff; font-weight: bold; }
+
+        /* 彈窗 Lightbox 樣式 */
+        .video-modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        .modal-content { position: relative; width: 90%; max-width: 1000px; aspect-ratio: 16/9; }
+        .close-modal { position: absolute; top: -50px; right: 0; color: #fff; font-size: 40px; cursor: pointer; }
+        .modal-content iframe { width: 100%; height: 100%; border: none; }
+
+        /* 規範表格 */
+        .rules-section { padding: 20px 10%; text-align: center; }
+        .rules-table-container { width: 100%; max-width: 1100px; margin: 0 auto 40px; overflow-x: auto; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(0, 210, 255, 0.3); }
+        .rules-table { width: 100%; border-collapse: collapse; font-size: 1rem; text-align: center; color: #f0f4f8; min-width: 800px; }
+        .rules-table th { background: rgba(0, 210, 255, 0.15); color: var(--spark-blue); padding: 15px; border-bottom: 2px solid rgba(0, 210, 255, 0.3); }
+        .rules-table td { padding: 15px; border-bottom: 1px solid rgba(0, 210, 255, 0.1); }
+        .mode-mix { background: rgba(254, 243, 199, 0.1); color: #fcd34d; padding: 4px 10px; border-radius: 4px; border: 1px solid #fcd34d; font-size: 0.8rem; }
+        .mode-manual { background: rgba(219, 234, 254, 0.1); color: #93c5fd; padding: 4px 10px; border-radius: 4px; border: 1px solid #93c5fd; font-size: 0.8rem; }
+        
+        .rules-btn { display: inline-block; padding: 15px 40px; border: 2px solid var(--spark-blue); color: var(--spark-blue); border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; margin-bottom: 20px; }
         .rules-btn:hover { background: var(--spark-blue); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
 
-        /* 設備與安全政策區塊 */
         .policy-box { background: rgba(0, 210, 255, 0.05); border: 2px dashed var(--spark-blue); margin: 50px auto; max-width: 1100px; padding: 40px; border-radius: 15px; text-align: center; }
         .policy-box p { line-height: 1.8; font-size: 1.05rem; color: #cbd5e1; }
 
-        /* 旅遊亮點區塊 */
+        /* 旅遊亮點 */
         .travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 10%; }
         .travel-item { position: relative; border-radius: 10px; overflow: hidden; height: 250px; }
         .travel-images { display: flex; width: 100%; height: 100%; }
         .travel-images img { width: 50%; height: 100%; object-fit: cover; }
-        .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; letter-spacing: 1px; }
+        .travel-item .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 20px; font-weight: bold; text-align: center; }
 
-        /* 報名區塊 */
+        /* 報名資訊 */
         .register-section { text-align: center; padding: 80px 10% 40px; background: linear-gradient(to bottom, transparent, rgba(255, 157, 0, 0.05)); }
-        .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; }
-        .fee-list { text-align: left; display: inline-block; background: rgba(0, 0, 0, 0.3); padding: 30px 50px; border-radius: 10px; border-left: 4px solid var(--spark-orange); margin-bottom: 25px; line-height: 2; font-size: 1.1rem; color: #f0f4f8; }
+        .agency-only { background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; display: inline-block; margin-bottom: 30px; font-weight: bold; }
+        .fee-list { text-align: left; display: inline-block; background: rgba(0, 0, 0, 0.3); padding: 30px 50px; border-radius: 10px; border-left: 4px solid var(--spark-orange); margin-bottom: 25px; line-height: 2; color: #f0f4f8; }
         .fee-list span { color: var(--spark-orange); font-weight: bold; }
-        
-        .safety-notice { text-align: left; display: inline-block; background: rgba(255, 77, 77, 0.1); padding: 20px 40px; border-radius: 10px; border-left: 4px solid #ff4d4d; margin-bottom: 40px; line-height: 1.8; font-size: 1rem; color: #f0f4f8; max-width: 700px; }
-        .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; margin-top: 10px; }
-        .register-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--spark-blue); }
+        .safety-notice { text-align: left; display: inline-block; background: rgba(255, 77, 77, 0.1); padding: 20px 40px; border-radius: 10px; border-left: 4px solid #ff4d4d; margin-bottom: 40px; color: #f0f4f8; max-width: 700px; }
+        .register-btn { display: inline-block; padding: 18px 60px; background: var(--spark-blue); color: #000; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 5px; transition: 0.3s; }
 
-        /* 最後聯絡資訊區塊 */
-        .contact-final { text-align: center; padding: 40px 10%; background: #05070a; border-top: 1px solid rgba(0, 210, 255, 0.1); }
-        .contact-final p { font-size: 1.2rem; color: var(--spark-blue); letter-spacing: 2px; font-weight: bold; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); margin: 0; }
+        .contact-final { text-align: center; padding: 40px 10%; background: #05070a; border-top: 1px solid rgba(0, 210, 255, 0.1); color: var(--spark-blue); font-weight: bold; }
 
         /* 側邊導航 */
         .side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 2000; }
-        .side-btn { background: rgba(0, 210, 255, 0.1); border: 1px solid var(--spark-blue); color: var(--spark-white); padding: 15px 8px; text-decoration: none; font-size: 0.8rem; writing-mode: vertical-lr; letter-spacing: 2px; border-radius: 4px; backdrop-filter: blur(5px); transition: 0.3s; }
-        .side-btn:hover { background: var(--spark-orange); color: #000; }
+        .side-btn { background: rgba(0, 210, 255, 0.1); border: 1px solid var(--spark-blue); color: var(--spark-white); padding: 15px 8px; text-decoration: none; font-size: 0.8rem; writing-mode: vertical-lr; letter-spacing: 2px; border-radius: 4px; backdrop-filter: blur(5px); }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
-            .fee-list, .safety-notice { padding: 20px; font-size: 1rem; width: 85%; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -157,6 +165,7 @@
     <ul class="nav-links">
         <li><a href="#home">首頁</a></li>
         <li><a href="#projects">正式賽項</a></li>
+        <li><a href="#video-showcase">精采影音</a></li>
         <li><a href="#rules">賽事規範</a></li>
         <li><a href="#travel">行程亮點</a></li>
         <li><a href="#register">報名資訊</a></li>
@@ -184,7 +193,7 @@
             <div class="project-card-content">
                 <span class="age-tag">建議組別：學前組 / 國小低年級組 (5-9歲)</span>
                 <h3>「古文明探險家」國際普及賽</h3>
-                <p class="eng-desc">By collecting civilization fragments with robots, young starchasers will trace the footsteps of history, uncovering the creative codes behind these legendary civilizations and discovering how human curiosity shaped the world.</p>
+                <p class="eng-desc">By collecting civilization fragments with robots, young starchasers will trace the footsteps of history, uncovering the creative codes behind these legendary civilizations.</p>
                 <div class="equipment-box">
                     <img src="project_ancient_1.jpg" alt="Equipment">
                     <p>WhalesBot U30 pro or U20 pro with accessory (mechanical claw)</p>
@@ -196,7 +205,7 @@
             <div class="project-card-content">
                 <span class="age-tag">建議組別：學前組至國小高年級組 (5-12歲)</span>
                 <h3>「極速飛行」無人機足球亞洲盃</h3>
-                <p class="eng-desc">Drone Cup is a dynamic team competition that integrates drone robotics, real-time communication, and intelligent decision-making. Teams must collaboratively pilot drones in a high-speed environment to achieve strategic objectives.</p>
+                <p class="eng-desc">Drone Cup is a dynamic team competition that integrates drone robotics, real-time communication, and intelligent decision-making.</p>
                 <div class="equipment-box">
                     <img src="project_drone_1.jpg" alt="Equipment">
                     <p>WhalesBot Eagle 125F</p>
@@ -208,7 +217,7 @@
             <div class="project-card-content">
                 <span class="age-tag">建議組別：國小高年級至高中組 (9-18歲)</span>
                 <h3>「星際對決」青少年機器人對戰賽</h3>
-                <p class="eng-desc">High-stakes competitive challenge where two teams - Red and Blue - go head-to-head. In the game, team members must communicate clearly, make quick decisions, and adjust their strategy as the situation on the field changes.</p>
+                <p class="eng-desc">High-stakes competitive challenge where two teams - Red and Blue - go head-to-head. Members must communicate clearly and adjust strategy.</p>
                 <div class="equipment-box">
                     <img src="project_battle_1.jpg" alt="Equipment">
                     <p>WhalesBot AI Module 3s</p>
@@ -217,6 +226,36 @@
         </div>
     </div>
 </section>
+
+<section id="video-showcase">
+    <h2 class="section-title">賽事精采影音 / VIDEO SHOWCASE</h2>
+    <div class="video-grid">
+        <div class="video-card" onclick="openVideo('WXQDxj_ilMI')">
+            <img src="https://img.youtube.com/vi/WXQDxj_ilMI/hqdefault.jpg" alt="古代文明影片">
+            <div class="play-btn-overlay"></div>
+            <div class="video-title">▶ 立即觀看：見證小小探險家的古文明奇旅</div>
+        </div>
+        
+        <div class="video-card" onclick="openVideo('2I8EZ2MRc40')">
+            <img src="https://img.youtube.com/vi/2I8EZ2MRc40/hqdefault.jpg" alt="星際之戰影片">
+            <div class="play-btn-overlay"></div>
+            <div class="video-title">▶ 巔峰對決：感受熱血沸騰的機器人星際大戰</div>
+        </div>
+
+        <div class="video-card" onclick="window.open('https://www.youtube.com/@ENJOYAIGLOBAL/videos', '_blank')">
+            <img src="project_drone.jpg" alt="前往官方頻道" style="filter: grayscale(0.5);">
+            <div class="play-btn-overlay" style="background: rgba(255,255,255,0.3);"></div>
+            <div class="video-title">▶ 探索更多：前往全球官方頻道了解最新賽訊</div>
+        </div>
+    </div>
+</section>
+
+<div id="videoModal" class="video-modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeVideo()">&times;</span>
+        <iframe id="videoPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
 
 <section id="rules" class="rules-section">
     <h2 class="section-title">賽事組別與規格統整</h2>
@@ -235,27 +274,27 @@
             <tbody>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">古代文明<br>(Ancient Civilizations)</td>
-                    <td class="text-left">• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)</td>
+                    <td>• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)</td>
                     <td>1–2人</td>
                     <td><span class="mode-mix">自動+遙控</span></td>
                     <td>25×25×25 cm</td>
-                    <td class="text-left">主控內建馬達 + 1個夾取馬達<br>≤ 5V</td>
+                    <td>內建馬達+1個夾取馬達<br>≤ 5V</td>
                 </tr>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">無人機盃<br>(Drone Cup)</td>
-                    <td class="text-left">• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)<br>• Grades 4–6 (9–12歲)</td>
+                    <td>• Pre-K (5–6歲)<br>• Grades 1–3 (6–9歲)<br>• Grades 4–6 (9–12歲)</td>
                     <td>2人</td>
                     <td><span class="mode-manual">純遙控</span></td>
                     <td>125×125×105 mm<br>≤ 42g</td>
-                    <td class="text-left">四軸馬達<br>≤ 5V</td>
+                    <td>四軸馬達<br>≤ 5V</td>
                 </tr>
                 <tr>
                     <td style="font-weight: bold; color: var(--spark-orange);">星際之戰<br>(Battle of Stars)</td>
-                    <td class="text-left">• Grades 4–6 (9–12歲)<br>• Grades 7–9 (12–15歲)<br>• Grades 10–12 (15–18歲)</td>
+                    <td>• Grades 4–6 (9–12歲)<br>• Grades 7–9 (12–15歲)<br>• Grades 10–12 (15–18歲)</td>
                     <td>2人</td>
                     <td><span class="mode-mix">自動+遙控</span></td>
                     <td>30×30×30 cm</td>
-                    <td class="text-left">≤ 7 個（含舵機）<br>≤ 9V</td>
+                    <td>≤ 7 個（含舵機）<br>≤ 9V</td>
                 </tr>
             </tbody>
         </table>
@@ -263,9 +302,7 @@
     <a href="https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link" class="rules-btn" target="_blank">📥 點此查看 / 下載完整官方比賽規則</a>
     <div class="policy-box">
         <h3>專業競賽平台公告</h3>
-        <p>本賽事指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）。<br>
-        為確保參賽過程之系統穩定性與公平性，所有參賽選手皆需使用符合官方規格之硬體設備。<br>
-        關於參賽設備之取得方式、軟硬體規格詳情及賽前集訓事宜，請洽詢各地授權合作教學機構。</p>
+        <p>本賽事指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）。關於參賽設備規格詳情，請洽詢授權合作教學機構。</p>
     </div>
 </section>
 
@@ -273,24 +310,15 @@
     <h2 class="section-title">國際视野 · 親子共學亮點</h2>
     <div class="travel-grid">
         <div class="travel-item">
-            <div class="travel-images">
-                <img src="view_trangan_0.jpg" alt="長安生態區">
-                <img src="view_trangan_1.jpg" alt="長安生態區 2">
-            </div>
+            <div class="travel-images"><img src="view_trangan_0.jpg"><img src="view_trangan_1.jpg"></div>
             <div class="caption">世界文化遺產 - 陸龍灣探秘</div>
         </div>
         <div class="travel-item">
-            <div class="travel-images">
-                <img src="view_waterpark_0.jpg" alt="河內西湖水上樂園">
-                <img src="view_waterpark_1.jpg" alt="河內西湖水上樂園 2">
-            </div>
+            <div class="travel-images"><img src="view_waterpark_0.jpg"><img src="view_waterpark_1.jpg"></div>
             <div class="caption">河內西湖水上樂園 - 親子同樂</div>
         </div>
         <div class="travel-item">
-            <div class="travel-images">
-                <img src="view_hotel_0.jpg" alt="芒青飯店">
-                <img src="view_hotel_1.jpg" alt="芒青飯店 2">
-            </div>
+            <div class="travel-images"><img src="view_hotel_0.jpg"><img src="view_hotel_1.jpg"></div>
             <div class="caption">高品質住宿 - 芒青 4 星級飯店</div>
         </div>
     </div>
@@ -298,20 +326,14 @@
 
 <section id="register" class="register-section">
     <h2 class="section-title">報名資訊與費用說明</h2>
-    <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名，恕不開放個人報名</div>
+    <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名</div>
     <div class="fee-list">
-        本次亞洲公開賽出團總費用包含以下項目：<br>
+        本次亞洲公開賽出團總費用包含：<br>
         1. <span>亞洲公開賽國際註冊費</span><br>
         2. <span>北越五天四夜機加酒與行程總費</span>
     </div><br>
-    <div class="safety-notice">
-        <span style="color: #ff4d4d; font-size: 1.1rem; font-weight: bold; display: block; margin-bottom: 5px;">🛡️ 團體安全規範聲明</span>
-        為確保參賽選手之跨國人身安全，並利於賽事期間的後勤支援與統一管理，本屆亞洲盃嚴格執行<strong style="color: var(--spark-orange);">「全團進出」</strong>制。所有報名隊伍均須全程配合協會安排之團體行動，恕不接受自行前往或脫隊行動，敬請見諒與配合。
-    </div>
-    <p style="font-size: 1.05rem; color: #cbd5e1; margin-bottom: 40px; line-height: 1.8;">
-        ※ 因各地區機構提供之賽前培訓方案不同，<br>
-        <strong style="color: #fff; font-size: 1.15rem;">詳細報名費用與早鳥優惠期限，請家長逕行向所屬之授權教學機構洽詢。</strong>
-    </p>
+    <div class="safety-notice">🛡️ 團體安全規範聲明：本屆亞洲盃嚴格執行「全團進出」制。報名隊伍須全程配合團體行動。</div>
+    <p><strong style="color: #fff;">詳細費用與優惠，請洽詢授權教學機構。</strong></p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">授權機構專屬報名通道</a>
 </section>
 
@@ -320,10 +342,35 @@
 </section>
 
 <footer>
-    <div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5); font-size: 0.8rem;">
+    <div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
         © 2026 臺灣智能程式科技教育推廣協會 (SPARK). All Rights Reserved.
     </div>
 </footer>
+
+<script>
+    function openVideo(videoId) {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('videoPlayer');
+        // 加入 rel=0 防止顯示推薦影片，加入 autoplay=1 點擊後即播放
+        player.src = "https://www.youtube.com/embed/" + videoId + "?rel=0&autoplay=1";
+        modal.style.display = "flex";
+    }
+
+    function closeVideo() {
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('videoPlayer');
+        player.src = ""; // 關閉時清空來源以停止播放
+        modal.style.display = "none";
+    }
+
+    // 點擊彈窗外部也可關閉
+    window.onclick = function(event) {
+        const modal = document.getElementById('videoModal');
+        if (event.target == modal) {
+            closeVideo();
+        }
+    }
+</script>
 
 </body>
 </html>
