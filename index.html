@@ -96,6 +96,39 @@
         .equipment-box img { width: 70px; height: auto; border-radius: 4px; background: #fff; padding: 2px; }
         .equipment-box p { margin: 0; font-size: 0.9rem; color: var(--spark-blue); font-weight: bold; }
 
+        /* 越南大會宣傳片 Banner */
+        .promo-video-banner {
+            background: linear-gradient(45deg, rgba(0, 210, 255, 0.1), rgba(255, 157, 0, 0.05));
+            border: 1px solid var(--spark-blue);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 0 10% 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+        .promo-video-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+            background: linear-gradient(45deg, rgba(0, 210, 255, 0.15), rgba(255, 157, 0, 0.15));
+        }
+        .promo-video-banner h3 { color: var(--spark-orange); font-size: 1.6rem; margin-top: 0; margin-bottom: 10px; letter-spacing: 1px; }
+        .promo-video-banner p { color: var(--spark-white); font-size: 1.1rem; margin-bottom: 20px; }
+        .promo-play-btn {
+            display: inline-block;
+            background: var(--spark-blue);
+            color: #000;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .promo-video-banner:hover .promo-play-btn { transform: scale(1.05); box-shadow: 0 0 20px var(--spark-blue); }
+
         /* 影音專區樣式 */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
         .video-card { position: relative; cursor: pointer; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 210, 255, 0.2); transition: 0.3s; }
@@ -179,12 +212,13 @@
 
 <section class="hero" id="home">
     <img src="national_team_2025.jpg" alt="2025 台灣代表隊國家大合照" class="national-team-photo">
-    <h1>ENJOY AI 2026 亞洲公開賽</h1>
+    <h1>2026 EnjoyAI 亞洲國際賽</h1>
     <p>北越河內 · 五天四夜國際文教出團計畫</p>
     <div class="date-badge">115 年 8 月 21 日 (五) － 8 月 25 日 (二)</div>
     <p style="font-size: 1rem; opacity: 0.8; margin-top: 20px;">※ 8 月 22 日為全日國際賽事，其餘時間為文化探索行程</p>
 </section>
 
+<!-- 賽項介紹 -->
 <section id="projects">
     <h2 class="section-title">2026 EnjoyAI 亞洲國際賽正式賽項</h2>
     <div class="project-grid">
@@ -227,21 +261,35 @@
     </div>
 </section>
 
+<!-- 影音專區 -->
 <section id="video-showcase">
     <h2 class="section-title">賽事精采影音 / VIDEO SHOWCASE</h2>
+    
+    <!-- 新增：越南大會官方宣傳片 (橫幅設計，保持下方三格對稱) -->
+    <div class="promo-video-banner" onclick="openVideo('kHDvID_wf1I')">
+        <div class="promo-content">
+            <h3>🇻🇳 2026 越南主辦方最新賽事宣傳短片</h3>
+            <p>搶先感受國際級賽事氛圍，預覽河內賽場魅力！</p>
+            <span class="promo-play-btn">▶ 點擊觀看大會 Shorts 短影音</span>
+        </div>
+    </div>
+
     <div class="video-grid">
+        <!-- 1. 古代文明影片 -->
         <div class="video-card" onclick="openVideo('WXQDxj_ilMI')">
             <img src="https://img.youtube.com/vi/WXQDxj_ilMI/hqdefault.jpg" alt="古代文明影片">
             <div class="play-btn-overlay"></div>
             <div class="video-title">▶ 立即觀看：見證小小探險家的古文明奇旅</div>
         </div>
         
+        <!-- 2. 無人機盃 (導回主頁) -->
         <div class="video-card" onclick="window.open('https://www.youtube.com/@ENJOYAIGLOBAL/videos', '_blank')">
             <img src="project_drone.jpg" alt="前往官方頻道" style="filter: grayscale(0.5);">
             <div class="play-btn-overlay" style="background: rgba(255,255,255,0.3);"></div>
             <div class="video-title">▶ 探索更多：前往全球官方頻道了解最新賽訊</div>
         </div>
         
+        <!-- 3. 星際之戰影片 -->
         <div class="video-card" onclick="openVideo('2I8EZ2MRc40')">
             <img src="https://img.youtube.com/vi/2I8EZ2MRc40/hqdefault.jpg" alt="星際之戰影片">
             <div class="play-btn-overlay"></div>
@@ -250,6 +298,7 @@
     </div>
 </section>
 
+<!-- 影音彈窗容器 -->
 <div id="videoModal" class="video-modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeVideo()">&times;</span>
@@ -328,11 +377,11 @@
     <h2 class="section-title">報名資訊與費用說明</h2>
     <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名</div>
     <div class="fee-list">
-        本次亞洲公開賽出團總費用包含：<br>
-        1. <span>亞洲公開賽國際註冊費</span><br>
+        本次2026 EnjoyAI 亞洲國際賽出團總費用包含：<br>
+        1. <span>2026 EnjoyAI 亞洲國際賽國際註冊費</span><br>
         2. <span>北越五天四夜機加酒與行程總費</span>
     </div><br>
-    <div class="safety-notice">🛡️ 團體安全規範聲明：本屆2026 EnjoyAI 亞洲國際賽嚴格執行「全團進出」制。報名隊伍須全程配合團體行動。</div>
+    <div class="safety-notice">🛡️ 團體安全規範聲明：本屆 2026 EnjoyAI 亞洲國際賽嚴格執行「全團進出」制。報名隊伍須全程配合團體行動。</div>
     <p><strong style="color: #fff;">詳細費用與優惠，請洽詢授權教學機構。</strong></p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeThKPq9uXyxaqDokEs13BgMzUW9_ilvcIHE4XnaSZzi6ETAQ/viewform" class="register-btn" target="_blank">授權機構專屬報名通道</a>
 </section>
