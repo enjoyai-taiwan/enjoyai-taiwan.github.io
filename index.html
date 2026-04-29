@@ -96,14 +96,17 @@
         .equipment-box img { width: 70px; height: auto; border-radius: 4px; background: #fff; padding: 2px; }
         .equipment-box p { margin: 0; font-size: 0.9rem; color: var(--spark-blue); font-weight: bold; }
 
-        /* 越南大會宣傳片 Banner */
+        /* 越南大會宣傳片 Banner (加入縮圖設計) */
         .promo-video-banner {
             background: linear-gradient(45deg, rgba(0, 210, 255, 0.1), rgba(255, 157, 0, 0.05));
             border: 1px solid var(--spark-blue);
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px 40px;
             margin: 0 10% 40px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
             cursor: pointer;
             transition: 0.3s;
             position: relative;
@@ -115,8 +118,54 @@
             box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
             background: linear-gradient(45deg, rgba(0, 210, 255, 0.15), rgba(255, 157, 0, 0.15));
         }
-        .promo-video-banner h3 { color: var(--spark-orange); font-size: 1.6rem; margin-top: 0; margin-bottom: 10px; letter-spacing: 1px; }
-        .promo-video-banner p { color: var(--spark-white); font-size: 1.1rem; margin-bottom: 20px; }
+
+        /* 宣傳片直式縮圖 (仿手機 Shorts 比例) */
+        .promo-thumbnail {
+            position: relative;
+            width: 140px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--spark-orange);
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(255, 157, 0, 0.3);
+        }
+        .promo-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 自動裁切為直式 */
+        }
+        .promo-thumbnail .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            transition: 0.3s;
+        }
+        .promo-thumbnail .play-icon::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid #fff;
+            margin-left: 5px;
+        }
+        .promo-video-banner:hover .play-icon { background: var(--spark-orange); border-color: var(--spark-orange); }
+
+        .promo-content { text-align: left; }
+        .promo-content h3 { color: var(--spark-orange); font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; letter-spacing: 1px; }
+        .promo-content p { color: var(--spark-white); font-size: 1.1rem; margin-bottom: 25px; line-height: 1.6; }
+        
         .promo-play-btn {
             display: inline-block;
             background: var(--spark-blue);
@@ -129,7 +178,7 @@
         }
         .promo-video-banner:hover .promo-play-btn { transform: scale(1.05); box-shadow: 0 0 20px var(--spark-blue); }
 
-        /* 影音專區樣式 */
+        /* 影音專區卡片樣式 */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
         .video-card { position: relative; cursor: pointer; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 210, 255, 0.2); transition: 0.3s; }
         .video-card img { width: 100%; height: auto; display: block; transition: 0.5s; }
@@ -186,6 +235,15 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
+            
+            /* 手機版 Banner 自動變成上下排列 */
+            .promo-video-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .promo-content { text-align: center; }
         }
     </style>
 </head>
@@ -265,11 +323,17 @@
 <section id="video-showcase">
     <h2 class="section-title">賽事精采影音 / VIDEO SHOWCASE</h2>
     
-    <!-- 新增：越南大會官方宣傳片 (橫幅設計，保持下方三格對稱) -->
+    <!-- 全新設計：帶有自動縮圖的越南大會宣傳片 Banner -->
     <div class="promo-video-banner" onclick="openVideo('kHDvID_wf1I')">
+        <!-- 左側：自動抓取 YouTube 封面的直立式縮圖 -->
+        <div class="promo-thumbnail">
+            <img src="https://img.youtube.com/vi/kHDvID_wf1I/hqdefault.jpg" alt="Shorts 預覽">
+            <div class="play-icon"></div>
+        </div>
+        <!-- 右側：文案區 -->
         <div class="promo-content">
             <h3>🇻🇳 2026 越南主辦方最新賽事宣傳短片</h3>
-            <p>搶先感受國際級賽事氛圍，預覽河內賽場魅力！</p>
+            <p>搶先感受國際級賽事氛圍，預覽河內賽場魅力！跟著鏡頭一窺本次大會的精彩瞬間。</p>
             <span class="promo-play-btn">▶ 點擊觀看大會 Shorts 短影音</span>
         </div>
     </div>
@@ -377,7 +441,7 @@
     <h2 class="section-title">報名資訊與費用說明</h2>
     <div class="agency-only">⚠ 本賽事僅接受「授權教學機構」統一報名</div>
     <div class="fee-list">
-        本次2026 EnjoyAI 亞洲國際賽出團總費用包含：<br>
+        本次 2026 EnjoyAI 亞洲國際賽出團總費用包含：<br>
         1. <span>2026 EnjoyAI 亞洲國際賽國際註冊費</span><br>
         2. <span>北越五天四夜機加酒與行程總費</span>
     </div><br>
