@@ -1,0 +1,20 @@
+# ENJOY AI Taiwan（ENJOY AI 臺灣官方網站）
+
+> ENJOY AI 國際機器人與人工智慧競賽的臺灣出團資訊網站，由臺灣智能程式科技教育推廣協會 (SPARK) 主辦。本賽事只接受授權教學機構統一報名，出團採全團進出制。
+
+## 2026 賽項
+- 「古文明探險家」Ancient Civilizations：Pre-K（5–6 歲）、Grades 1–3（6–9 歲），每隊 1–2 人，自動＋遙控，25×25×25 cm，內建馬達＋1 個夾取馬達、≤ 5V
+- 「極速飛行」無人機盃 Drone Cup：Pre-K、Grades 1–3、Grades 4–6（5–12 歲），每隊 2 人，純遙控，125×125×105 mm、≤ 42 g，四軸馬達、≤ 5V
+- 「星際對決」Battle of Stars：Grades 4–12（9–18 歲），每隊 2 人，自動＋遙控，30×30×30 cm，≤ 7 個馬達（含舵機）、≤ 9V
+- 指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）
+
+## 主要頁面
+- [ENJOY AI 臺灣官方網站](https://enjoyai-taiwan.github.io/)：賽項、組別規範、精采影音、報名方式
+- [其他國家賽事資訊](https://enjoyai-taiwan.github.io/other-events.html)
+- [ENJOY AI 2025 賽季回顧](https://enjoyai-taiwan.github.io/2025-recap.html)
+- [完整官方比賽規則（Google 雲端）](https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link)
+- [主辦單位：臺灣智能程式科技教育推廣協會](https://spark-taiwan-association.github.io/)
+
+## 聯絡方式
+- SPARK LINE 官方帳號：@667zzgzv（https://line.me/R/ti/p/%40667zzgzv）
+- Email：contacteduspark@gmail.com
