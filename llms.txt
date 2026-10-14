@@ -1,4 +1,4 @@
-# ENJOY AI Taiwan（ENJOY AI 臺灣官方網站）
+# EnjoyAI Taiwan（ENJOY AI 臺灣出團官方網站）
 
 > ENJOY AI 國際機器人與人工智慧競賽的臺灣出團資訊網站，由臺灣智能程式科技教育推廣協會 (SPARK) 主辦。本賽事只接受授權教學機構統一報名，出團採全團進出制。
 
@@ -9,7 +9,7 @@
 - 指定使用 EnjoyAI 官方競賽平台（鯨魚機器人專業版系列）
 
 ## 主要頁面
-- [ENJOY AI 臺灣官方網站](https://enjoyai-taiwan.github.io/)：賽項、組別規範、精采影音、報名方式
+- [EnjoyAI Taiwan 官方網站](https://enjoyai-taiwan.github.io/)：賽項、組別規範、精采影音、報名方式
 - [其他國家賽事資訊](https://enjoyai-taiwan.github.io/other-events.html)
 - [ENJOY AI 2025 賽季回顧](https://enjoyai-taiwan.github.io/2025-recap.html)
 - [完整官方比賽規則（Google 雲端）](https://drive.google.com/drive/folders/14LCCIQ8jKAw340yYFQEqxTPh-wovKwmR?usp=drive_link)
