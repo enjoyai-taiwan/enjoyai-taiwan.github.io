@@ -55,7 +55,9 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap"></noscript>
     <style>
         :root {
             --mat: #FBFAFF;
@@ -255,7 +257,7 @@
 
 <nav class="site-nav" aria-label="主選單">
     <div class="wrap">
-        <a class="brand" href="#home"><img src="nav-logo.png" alt="">EnjoyAI Taiwan</a>
+        <a class="brand" href="#home"><img src="nav-logo.webp" alt="">EnjoyAI Taiwan</a>
         <ul class="nav-links">
             <li><a href="#projects">正式賽項</a></li>
             <li><a href="#rules">組別規格</a></li>
@@ -285,7 +287,7 @@
         </div>
         <figure style="margin:0">
             <div class="rail-frame">
-                <img src="national_team_2025.jpg" alt="2025 EnjoyAI 亞洲公開賽，臺灣代表隊與各國選手在頒獎台前合照" width="1262" height="628">
+                <img src="national_team_2025.webp" srcset="national_team_2025-760.webp 760w, national_team_2025.webp 1262w" sizes="100vw" alt="2025 EnjoyAI 亞洲公開賽，臺灣代表隊與各國選手在頒獎台前合照" width="1262" height="628">
             </div>
             <figcaption class="rail-caption">2025 EnjoyAI 亞洲公開賽，臺灣代表隊與各國選手合影</figcaption>
         </figure>
@@ -310,30 +312,30 @@
         </div>
         <div class="events">
             <article class="event ancient">
-                <div class="event-media"><img src="project_ancient.jpg" alt="古文明探險家比賽場地，四個古文明主題區" loading="lazy"></div>
+                <div class="event-media"><img src="project_ancient.webp" alt="古文明探險家比賽場地，四個古文明主題區" loading="lazy"></div>
                 <div class="event-body">
                     <h3>古文明探險家</h3>
                     <div class="event-age">學前組、國小低年級組（5–9 歲）</div>
                     <p class="event-en">By collecting civilization fragments with robots, young starchasers will trace the footsteps of history, uncovering the creative codes behind these legendary civilizations.</p>
-                    <div class="kit"><img src="project_ancient_1.jpg" alt="" loading="lazy"><span>WhalesBot U30 pro 或 U20 pro，加裝機械夾爪</span></div>
+                    <div class="kit"><img src="project_ancient_1.webp" alt="" loading="lazy"><span>WhalesBot U30 pro 或 U20 pro，加裝機械夾爪</span></div>
                 </div>
             </article>
             <article class="event drone">
-                <div class="event-media"><img src="project_drone.jpg" alt="無人機足球比賽用的網狀場地" loading="lazy"></div>
+                <div class="event-media"><img src="project_drone.webp" alt="無人機足球比賽用的網狀場地" loading="lazy"></div>
                 <div class="event-body">
                     <h3>極速飛行・無人機足球</h3>
                     <div class="event-age">學前組至國小高年級組（5–12 歲）</div>
                     <p class="event-en">Drone Cup is a dynamic team competition that integrates drone robotics, real-time communication, and intelligent decision-making.</p>
-                    <div class="kit"><img src="project_drone_1.jpg" alt="" loading="lazy"><span>WhalesBot Eagle 125F</span></div>
+                    <div class="kit"><img src="project_drone_1.webp" alt="" loading="lazy"><span>WhalesBot Eagle 125F</span></div>
                 </div>
             </article>
             <article class="event battle">
-                <div class="event-media"><img src="project_battle.jpg" alt="星際對決紅藍兩隊對戰場地" loading="lazy"></div>
+                <div class="event-media"><img src="project_battle.webp" alt="星際對決紅藍兩隊對戰場地" loading="lazy"></div>
                 <div class="event-body">
                     <h3>星際對決・機器人對戰</h3>
                     <div class="event-age">國小高年級至高中組（9–18 歲）</div>
                     <p class="event-en">High-stakes competitive challenge where two teams - Red and Blue - go head-to-head. Members must communicate clearly and adjust strategy.</p>
-                    <div class="kit"><img src="project_battle_1.jpg" alt="" loading="lazy"><span>WhalesBot AI Module 3s</span></div>
+                    <div class="kit"><img src="project_battle_1.webp" alt="" loading="lazy"><span>WhalesBot AI Module 3s</span></div>
                 </div>
             </article>
         </div>
